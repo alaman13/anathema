@@ -113,7 +113,7 @@ public class UserDialog extends AbstractDialog implements IUserDialogContainer {
     };
     JButton cancelButton = new JButton(cancelAction);
 
-    List<JComponent> buttonList = new ArrayList<JComponent>();
+    List<JComponent> buttonList = new ArrayList<>();
     if (okActionConfiguration != null) {
       buttonList.add(okButton);
     }

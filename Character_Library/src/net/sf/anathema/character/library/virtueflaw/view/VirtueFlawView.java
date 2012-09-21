@@ -80,7 +80,7 @@ public class VirtueFlawView implements IVirtueFlawView {
   public IObjectSelectionView<ITraitType> addVirtueFlawRootSelectionView(
       String labelText,
       ListCellRenderer renderer) {
-    ObjectSelectionView<ITraitType> rootSelectionView = new ObjectSelectionView<ITraitType>(
+    ObjectSelectionView<ITraitType> rootSelectionView = new ObjectSelectionView<>(
         labelText,
         renderer,
         new ITraitType[0]);

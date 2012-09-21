@@ -21,7 +21,7 @@ public class MusicSearchPresenter implements Presenter {
   private final ILibraryControlView controlView;
   private final IResources resources;
   private IMusicSearchControl searchControl;
-  private final Map<ISearchComponent, ISearchParameter> parametersByView = new HashMap<ISearchComponent, ISearchParameter>();
+  private final Map<ISearchComponent, ISearchParameter> parametersByView = new HashMap<>();
 
   public MusicSearchPresenter(ILibraryControlView controlView, IMusicDatabase dataBase, IResources resources) {
     this.controlView = controlView;
@@ -41,7 +41,7 @@ public class MusicSearchPresenter implements Presenter {
 
       @Override
       protected void execute(Component parentComponent) {
-        Map<ISearchParameter, String> constraintsByParamter = new HashMap<ISearchParameter, String>();
+        Map<ISearchParameter, String> constraintsByParamter = new HashMap<>();
         for (ISearchComponent component : parametersByView.keySet()) {
           if (component.isSelected()) {
             ISearchParameter parameter = parametersByView.get(component);

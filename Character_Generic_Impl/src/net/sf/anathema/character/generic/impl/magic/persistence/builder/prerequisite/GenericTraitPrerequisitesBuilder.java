@@ -18,7 +18,7 @@ public class GenericTraitPrerequisitesBuilder implements ITraitPrerequisitesBuil
 
   @Override
   public IGenericTrait[] buildTraitPrerequisites(Element prerequisiteListElement) throws PersistenceException {
-    List<IGenericTrait> allPrerequisites = new ArrayList<IGenericTrait>();
+    List<IGenericTrait> allPrerequisites = new ArrayList<>();
     ITraitPrerequisiteBuilder traitBuilder = new TraitPrerequisiteBuilder();
     List<Element> elements = ElementUtilities.elements(prerequisiteListElement, TAG_TRAIT);
     try {

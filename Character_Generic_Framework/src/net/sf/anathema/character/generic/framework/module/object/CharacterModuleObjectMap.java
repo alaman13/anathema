@@ -8,12 +8,12 @@ import java.util.Map;
 
 public class CharacterModuleObjectMap implements ICharacterModuleObjectMap {
   private final Map<Class<? extends ICharacterModule<?>>, ICharacterModuleObject> moduleObjects =
-          new HashMap<Class<? extends ICharacterModule<?>>, ICharacterModuleObject>();
+          new HashMap<>();
 
   @Override
   @SuppressWarnings("unchecked")
   public <T extends ICharacterModuleObject> T getModuleObject(Class<? extends ICharacterModule<T>> moduleClass) {
-    Preconditions.checkArgument(ICharacterModule.class.isAssignableFrom(moduleClass), "Must implement ICoreModule");
+    Preconditions.checkArgument(ICharacterModule.class.isAssignableFrom(moduleClass), "Must implement " + ICharacterModule.class.getSimpleName());
     return (T) moduleObjects.get(moduleClass);
   }
 

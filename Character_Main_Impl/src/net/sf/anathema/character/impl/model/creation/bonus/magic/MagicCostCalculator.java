@@ -3,6 +3,7 @@ package net.sf.anathema.character.impl.model.creation.bonus.magic;
 import net.sf.anathema.character.generic.IBasicCharacterData;
 import net.sf.anathema.character.generic.character.IGenericTraitCollection;
 import net.sf.anathema.character.generic.magic.ICharm;
+import net.sf.anathema.character.generic.magic.ICharmData;
 import net.sf.anathema.character.generic.magic.IMagic;
 import net.sf.anathema.character.generic.magic.IMagicVisitor;
 import net.sf.anathema.character.generic.magic.ISpell;
@@ -69,7 +70,7 @@ public class MagicCostCalculator {
     }
     List<IMagic> sortedMagicList = new WeightedMagicSorter().sortDescending(
             magicToHandle.toArray(new IMagic[magicToHandle.size()]), weights);
-    Set<IMagic> handledMagic = new HashSet<IMagic>();
+    Set<IMagic> handledMagic = new HashSet<>();
     for (IMagic magic : sortedMagicList) {
       handleMagic(magic, handledMagic);
     }
@@ -134,7 +135,7 @@ public class MagicCostCalculator {
   }
 
   private List<IMagic> compileCompleteMagicList() {
-    List<IMagic> completeList = new ArrayList<IMagic>();
+    List<IMagic> completeList = new ArrayList<>();
     completeList.addAll(Arrays.asList(charms.getCreationLearnedCharms()));
     completeList.addAll(Arrays.asList(spells.getLearnedSpells(false)));
     return completeList;
@@ -142,8 +143,7 @@ public class MagicCostCalculator {
 
   private List<IMagic> handleAdditionalMagicPools() {
     List<IMagic> magicToHandle = compileCompleteMagicList();
-    List<IMagic> leftOverMagic = magicPools.spendOn(magicToHandle);
-    return leftOverMagic;
+    return magicPools.spendOn(magicToHandle);
   }
 
   private void clear() {
@@ -219,7 +219,7 @@ public class MagicCostCalculator {
     }
     IUniqueCharmType uniqueType = charmTemplate.getUniqueCharmType();
     if (magic instanceof ICharm) {
-      for (ICharmAttribute attribute : ((ICharm) magic).getAttributes()) {
+      for (ICharmAttribute attribute : ((ICharmData) magic).getAttributes()) {
         if (attribute.getId().equals(uniqueType.getId())) {
           return false;
         }

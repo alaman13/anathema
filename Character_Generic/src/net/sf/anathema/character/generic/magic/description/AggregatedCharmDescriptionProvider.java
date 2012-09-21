@@ -4,7 +4,6 @@ import com.google.common.base.Function;
 import net.sf.anathema.character.generic.magic.IMagic;
 import net.sf.anathema.lib.resources.IResources;
 
-import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +11,7 @@ import static com.google.common.collect.Lists.transform;
 
 public class AggregatedCharmDescriptionProvider implements MagicDescriptionProvider {
 
-  private final List<MagicDescriptionProvider> providerList = new ArrayList<MagicDescriptionProvider>();
+  private final List<MagicDescriptionProvider> providerList = new ArrayList<>();
 
   public AggregatedCharmDescriptionProvider(IResources resources) {
     providerList.add(new ShortMagicDescriptionProvider(resources));
@@ -36,7 +35,7 @@ public class AggregatedCharmDescriptionProvider implements MagicDescriptionProvi
     }
 
     @Override
-    public MagicDescription apply(@Nullable MagicDescriptionProvider input) {
+    public MagicDescription apply(MagicDescriptionProvider input) {
       return input.getCharmDescription(magic);
     }
   }

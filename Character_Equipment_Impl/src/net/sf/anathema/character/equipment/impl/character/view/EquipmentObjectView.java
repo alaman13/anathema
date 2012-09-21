@@ -19,8 +19,8 @@ public class EquipmentObjectView implements IEquipmentObjectView, ITaskPaneGroup
 
   private final JXTaskPane taskGroup = new JXTaskPane();
   private final JLabel descriptionLabel = new JLabel();
-  private final Map<BooleanModel, JCheckBox> boxes = new HashMap<BooleanModel, JCheckBox>();
-  private final Map<BooleanModel, JPanel> boxPanels = new HashMap<BooleanModel, JPanel>();
+  private final Map<BooleanModel, JCheckBox> boxes = new HashMap<>();
+  private final Map<BooleanModel, JPanel> boxPanels = new HashMap<>();
 
   public EquipmentObjectView() {
     taskGroup.add(descriptionLabel);

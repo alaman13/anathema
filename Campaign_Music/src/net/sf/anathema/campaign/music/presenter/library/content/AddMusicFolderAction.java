@@ -30,7 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddMusicFolderAction extends SmartAction {
-  private static final long serialVersionUID = -509736641362821213L;
   public static final String ADD_MUSIC_CHOOSER_VALUE = "AddMusicFolder"; //$NON-NLS-1$
   private final ILibraryControl model;
   private final ILibraryControlView view;
@@ -82,7 +81,7 @@ public class AddMusicFolderAction extends SmartAction {
           resources.getString("Music.Actions.AddFolder.ProgressMonitor.DialogTitle")).run(new IInterruptibleRunnableWithProgress() { //$NON-NLS-1$
             @Override
             public void run(final IProgressMonitor monitor, IObservableCancelable cancelable) throws InterruptedException, InvocationTargetException {
-              final List<IMp3Track> foundTracks = new ArrayList<IMp3Track>();
+              final List<IMp3Track> foundTracks = new ArrayList<>();
               walker.walk(resources, monitor, cancelable, new ITrackHandler() {
                 @Override
                 public void handleMp3(IMp3Track mp3Item) {

@@ -20,8 +20,8 @@ public class MusicCategorizationPresenter implements Presenter {
 
   @Override
   public void initPresentation() {
-    new SelectionContainerPresenter<IMusicTheme>(model.getThemesModel(), view.getThemesView(), IMusicTheme.class).initPresentation();
-    new SelectionContainerPresenter<IMusicMood>(model.getMoodsModel(), view.getMoodsView(), IMusicMood.class).initPresentation();
-    new SelectionContainerPresenter<IMusicEvent>(model.getEventsModel(), view.getEventsView(), IMusicEvent.class).initPresentation();
+    new SelectionContainerPresenter<>(model.getThemesModel(), view.getThemesView(), IMusicTheme.class).initPresentation();
+    new SelectionContainerPresenter<>(model.getMoodsModel(), view.getMoodsView(), IMusicMood.class).initPresentation();
+    new SelectionContainerPresenter<>(model.getEventsModel(), view.getEventsView(), IMusicEvent.class).initPresentation();
   }
 }

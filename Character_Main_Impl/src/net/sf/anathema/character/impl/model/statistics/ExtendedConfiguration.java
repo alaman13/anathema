@@ -13,9 +13,9 @@ import net.sf.anathema.lib.control.IChangeListener;
 
 public class ExtendedConfiguration implements IExtendedConfiguration {
 
-  private final List<IAdditionalModel> additionalModels = new ArrayList<IAdditionalModel>();
+  private final List<IAdditionalModel> additionalModels = new ArrayList<>();
   private final ICharacterModelContext context;
-  private final List<IChangeListener> listeners = new ArrayList<IChangeListener>();
+  private final List<IChangeListener> listeners = new ArrayList<>();
 
   public ExtendedConfiguration(ICharacterModelContext context) {
     this.context = context;
@@ -36,7 +36,7 @@ public class ExtendedConfiguration implements IExtendedConfiguration {
 
   @Override
   public IAdditionalModel[] getAdditionalModels(AdditionalModelType type) {
-    List<IAdditionalModel> models = new ArrayList<IAdditionalModel>();
+    List<IAdditionalModel> models = new ArrayList<>();
     for (IAdditionalModel model : additionalModels) {
       if (model.getAdditionalModelType() == type) {
         models.add(model);

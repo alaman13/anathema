@@ -18,8 +18,8 @@ public class AnathemaPreferencesPage extends AbstractDialogPage {
 
   private IResources resources;
   private IPreferencesElement[] elements;
-  private final Map<String, JPanel> tabContentByCategory = new LinkedHashMap<String, JPanel>();
-  private final Map<String, IGridDialogPanel> panelsByName = new HashMap<String, IGridDialogPanel>();
+  private final Map<String, JPanel> tabContentByCategory = new LinkedHashMap<>();
+  private final Map<String, IGridDialogPanel> panelsByName = new HashMap<>();
 
   public AnathemaPreferencesPage(IResources resources, IPreferencesElement[] elements) {
     super(resources.getString("AnathemaCore.Tools.Preferences.Instruction")); //$NON-NLS-1$

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import net.sf.anathema.character.generic.magic.ISpell;
 
 public class SpellCache implements ISpellCache {
-	private List<ISpell> spellList = new ArrayList<ISpell>();
+	private List<ISpell> spellList = new ArrayList<>();
 	
 	public void addSpell(ISpell spell) {
 		spellList.add(spell);
@@ -14,6 +14,6 @@ public class SpellCache implements ISpellCache {
 
 	@Override
 	public ISpell[] getSpells() {
-		return spellList.toArray(new ISpell[0]);
+		return spellList.toArray(new ISpell[spellList.size()]);
 	}
 }

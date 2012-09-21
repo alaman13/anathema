@@ -17,7 +17,6 @@ import net.sf.anathema.framework.value.IntegerViewFactory;
 import javax.swing.Icon;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
-import javax.swing.border.TitledBorder;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
@@ -37,11 +36,11 @@ public class SeparateBackgroundView extends AbstractInitializableContentView<Bac
     content.setLayout(new FlowLayout(FlowLayout.LEFT));
     JPanel innerPanel = new JPanel(new GridDialogLayout(2, false));
     content.add(innerPanel);
-    JPanel backgroundPanel = createBackgroundPanel(properties.getBackgroundTitle());
+    JPanel backgroundPanel = createBackgroundPanel();
     innerPanel.add(backgroundPanel, createHorizontalSpanData(2, GridDialogLayoutData.FILL_HORIZONTAL));
   }
 
-  private JPanel createBackgroundPanel(String title) {
+  private JPanel createBackgroundPanel() {
     JPanel panel = new JPanel(new BorderLayout());
     panel.add(backgroundSelectionPanel, BorderLayout.CENTER);
     panel.add(backgroundDisplayPanel, BorderLayout.SOUTH);
@@ -53,7 +52,7 @@ public class SeparateBackgroundView extends AbstractInitializableContentView<Bac
                                                                            ListCellRenderer backgroundRenderer,
                                                                            ITextFieldComboBoxEditor backgroundEditor,
                                                                            Icon addIcon) {
-    ButtonControlledComboEditView<Object> objectSelectionView = new BackgroundSelectionView<Object>(addIcon, labelText,
+    ButtonControlledComboEditView<Object> objectSelectionView = new BackgroundSelectionView<>(addIcon, labelText,
             backgroundRenderer, backgroundEditor);
     backgroundSelectionPanel.add(objectSelectionView.getComponent());
     return objectSelectionView;
@@ -63,7 +62,7 @@ public class SeparateBackgroundView extends AbstractInitializableContentView<Bac
   public IRemovableTraitView<SimpleTraitView> addBackgroundView(Icon deleteIcon, String labelText, int value,
                                                                 int maxValue) {
     SimpleTraitView view = new SimpleTraitView(guiConfiguration, labelText, value, maxValue);
-    RearButtonTraitViewWrapper<SimpleTraitView> backgroundView = new RearButtonTraitViewWrapper<SimpleTraitView>(view,
+    RearButtonTraitViewWrapper<SimpleTraitView> backgroundView = new RearButtonTraitViewWrapper<>(view,
             deleteIcon);
     backgroundView.addComponents(backgroundDisplayPanel);
     return backgroundView;

@@ -16,7 +16,7 @@ public abstract class AbstractCharmSetBuilder implements ICharmSetBuilder {
 
   @Override
   public ICharm[] buildCharms(Document charmDoc, List<ISpecialCharm> specialCharms) throws PersistenceException {
-    Collection<Charm> allCharms = new HashSet<Charm>();
+    Collection<Charm> allCharms = new HashSet<>();
     Element charmListElement = charmDoc.getRootElement();
     buildCharms(allCharms, specialCharms, charmListElement);
     return allCharms.toArray(new ICharm[allCharms.size()]);

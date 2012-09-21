@@ -7,7 +7,7 @@ import net.sf.anathema.campaign.model.plot.IPlotTimeUnit;
 
 public class PlotIDProvider {
 
-  private final Map<IPlotTimeUnit, Integer> timeUnitCount = new HashMap<IPlotTimeUnit, Integer>();
+  private final Map<IPlotTimeUnit, Integer> timeUnitCount = new HashMap<>();
 
   public PlotIDProvider(IPlotTimeUnit rootUnit) {
     IPlotTimeUnit unit = rootUnit;

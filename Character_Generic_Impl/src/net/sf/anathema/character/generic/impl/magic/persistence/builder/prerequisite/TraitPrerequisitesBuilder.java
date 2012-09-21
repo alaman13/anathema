@@ -15,7 +15,7 @@ import org.dom4j.Element;
 public class TraitPrerequisitesBuilder implements ITraitPrerequisitesBuilder {
   @Override
   public IGenericTrait[] buildTraitPrerequisites(Element prerequisiteListElement) throws PersistenceException {
-    List<IGenericTrait> allPrerequisites = new ArrayList<IGenericTrait>();
+    List<IGenericTrait> allPrerequisites = new ArrayList<>();
     ITraitPrerequisiteBuilder traitBuilder = new TraitPrerequisiteBuilder();
     ITraitPrerequisiteBuilder backgroundBuilder = new BackgroundPrerequisiteBuilder();
     for (Element element : ElementUtilities.elements(prerequisiteListElement, TAG_TRAIT)) {

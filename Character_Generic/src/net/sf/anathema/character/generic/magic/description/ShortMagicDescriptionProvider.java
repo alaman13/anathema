@@ -1,6 +1,7 @@
 package net.sf.anathema.character.generic.magic.description;
 
 import net.sf.anathema.character.generic.magic.ICharm;
+import net.sf.anathema.character.generic.magic.ICharmData;
 import net.sf.anathema.character.generic.magic.IMagic;
 import net.sf.anathema.lib.resources.IResources;
 import org.apache.commons.lang3.StringUtils;
@@ -34,7 +35,7 @@ public class ShortMagicDescriptionProvider implements MagicDescriptionProvider {
         String genericId = id.substring(0, id.lastIndexOf('.'));
         String description = getDescriptionPattern(id, genericId);
         if (magic instanceof ICharm) {
-          String traitId = ((ICharm) magic).getPrimaryTraitType().getId();
+          String traitId = ((ICharmData) magic).getPrimaryTraitType().getId();
           description = MessageFormat.format(description, resources.getString(traitId));
         }
         return description;

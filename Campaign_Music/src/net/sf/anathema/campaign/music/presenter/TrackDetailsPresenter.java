@@ -40,15 +40,15 @@ public class TrackDetailsPresenter implements Presenter {
         trackDetailModel.updateGivenName(newValue);
       }
     });
-    new SelectionContainerPresenter<IMusicTheme>(
+    new SelectionContainerPresenter<>(
         trackDetailModel.getThemesModel(),
         trackDetailsView.getMusicCategorizationView().getThemesView(),
         IMusicTheme.class).initPresentation();
-    new SelectionContainerPresenter<IMusicMood>(
+    new SelectionContainerPresenter<>(
         trackDetailModel.getMoodsModel(),
         trackDetailsView.getMusicCategorizationView().getMoodsView(),
         IMusicMood.class).initPresentation();
-    new SelectionContainerPresenter<IMusicEvent>(
+    new SelectionContainerPresenter<>(
         trackDetailModel.getEventsModel(),
         trackDetailsView.getMusicCategorizationView().getEventsView(),
         IMusicEvent.class).initPresentation();

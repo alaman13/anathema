@@ -22,7 +22,7 @@ import net.sf.anathema.character.model.traits.ICoreTraitConfiguration;
 public class AbilityCostCalculator extends AbstractFavorableTraitCostCalculator implements IAbilityCostCalculator {
 
   private static IFavorableTrait[] getAllAbilities(ICoreTraitConfiguration traitConfiguration) {
-    List<ITraitType> abilityTypes = new ArrayList<ITraitType>();
+    List<ITraitType> abilityTypes = new ArrayList<>();
     for (IIdentifiedTraitTypeGroup group : traitConfiguration.getAbilityTypeGroups()) {
       Collections.addAll(abilityTypes, group.getAllGroupTypes());
     }
@@ -70,7 +70,7 @@ public class AbilityCostCalculator extends AbstractFavorableTraitCostCalculator 
   }
 
   private IGenericSpecialty[] createGenericSpecialties() {
-    List<IGenericSpecialty> specialties = new ArrayList<IGenericSpecialty>();
+    List<IGenericSpecialty> specialties = new ArrayList<>();
     for (IFavorableTrait ability : getTraits()) {
       ISpecialtiesConfiguration specialtyConfiguration = traitConfiguration.getSpecialtyConfiguration();
       for (ISubTrait specialty : specialtyConfiguration.getSpecialtiesContainer(ability.getType()).getSubTraits()) {
@@ -79,14 +79,13 @@ public class AbilityCostCalculator extends AbstractFavorableTraitCostCalculator 
         }
       }
     }
-    return specialties.toArray(new IGenericSpecialty[0]);
+    return specialties.toArray(new IGenericSpecialty[specialties.size()]);
   }
 
   @Override
   protected int getCostFactor(IFavorableDefaultTrait trait) {
     ITraitFavorization favorization = trait.getFavorization();
-    int costFactor = costs.getAbilityCosts(favorization.isCasteOrFavored()).getRatingCosts(trait.getCalculationValue());
-    return costFactor;
+    return costs.getAbilityCosts(favorization.isCasteOrFavored()).getRatingCosts(trait.getCalculationValue());
   }
 
   @Override

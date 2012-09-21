@@ -6,10 +6,10 @@ import net.sf.anathema.character.generic.magic.ICharm;
 import net.sf.anathema.dummy.character.magic.DummyCharm;
 import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
 import net.sf.anathema.graph.nodes.NodeFactory;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedHashMap;
 
 import static org.junit.Assert.assertEquals;
@@ -17,14 +17,8 @@ import static org.junit.Assert.assertTrue;
 
 public class CharmNodeConnectorTest {
 
-  private LinkedHashMap<String, IIdentifiedRegularNode> nodes;
-  private ArrayList<ICharm> list;
-
-  @Before
-  public void setUp() throws Exception {
-    nodes = new LinkedHashMap<String, IIdentifiedRegularNode>();
-    list = new ArrayList<ICharm>();
-  }
+  private LinkedHashMap<String, IIdentifiedRegularNode> nodes = new LinkedHashMap<>();
+  private Collection<ICharm> list = new ArrayList<>();
 
   @Test
   public void testNoNodes() throws Exception {

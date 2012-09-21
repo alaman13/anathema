@@ -11,7 +11,7 @@ import net.sf.anathema.lib.exception.NotYetImplementedException;
 
 public class DummyGenericTraitCollection implements IGenericTraitCollection {
 
-  private final Map<ITraitType, IGenericTrait> traits = new HashMap<ITraitType, IGenericTrait>();
+  private final Map<ITraitType, IGenericTrait> traits = new HashMap<>();
 
   @Override
   public IFavorableGenericTrait getFavorableTrait(ITraitType type) {

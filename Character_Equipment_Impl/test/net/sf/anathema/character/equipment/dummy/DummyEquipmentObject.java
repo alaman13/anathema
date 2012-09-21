@@ -14,7 +14,7 @@ import net.sf.anathema.lib.control.IChangeListener;
 
 public class DummyEquipmentObject extends AbstractStats implements IEquipmentItem {
 
-  private final List<IEquipmentStats> allEquipments = new ArrayList<IEquipmentStats>();
+  private final List<IEquipmentStats> allEquipments = new ArrayList<>();
   private final String name;
   private final String description;
 

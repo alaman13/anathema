@@ -24,11 +24,11 @@ import java.util.List;
 
 public class AnathemaModel implements IAnathemaModel {
 
-  private final IRegistry<String, IAnathemaExtension> extensionRegistry = new Registry<String, IAnathemaExtension>();
-  private final IRegistry<IItemType, IRepositoryItemPersister> persisterRegistry = new Registry<IItemType, IRepositoryItemPersister>();
+  private final IRegistry<String, IAnathemaExtension> extensionRegistry = new Registry<>();
+  private final IRegistry<IItemType, IRepositoryItemPersister> persisterRegistry = new Registry<>();
   private final IItemManagementModel itemManagment = new ItemManagmentModel();
   private final IReportRegistry reportRegistry = new ReportRegistry();
-  private final IRegistry<IItemType, IItemViewFactory> viewFactoryRegistry = new Registry<IItemType, IItemViewFactory>();
+  private final IRegistry<IItemType, IItemViewFactory> viewFactoryRegistry = new Registry<>();
   private final IItemTypeRegistry itemTypes = new ItemTypeRegistry();
   private final Repository repository;
   private final Messaging messaging;

@@ -10,7 +10,7 @@ import net.sf.anathema.character.generic.traits.LowerableState;
 
 public class TemplateTypeBackgroundTemplate extends AbstractBackgroundTemplate {
 
-  private final List<ITemplateType> types = new ArrayList<ITemplateType>();
+  private final List<ITemplateType> types = new ArrayList<>();
   private final LowerableState experiencedState;
 
   public TemplateTypeBackgroundTemplate(String id, ITemplateType... types) {

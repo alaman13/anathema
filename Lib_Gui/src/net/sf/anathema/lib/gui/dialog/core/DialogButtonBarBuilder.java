@@ -14,12 +14,7 @@ import java.util.List;
 
 public class DialogButtonBarBuilder {
 
-  private final List<JComponent> leftSideComponents = new ArrayList<JComponent>();
-  private final List<JComponent> buttons = new ArrayList<JComponent>();
-
-  public void addLeftSideComponent(JComponent component) {
-    leftSideComponents.add(component);
-  }
+  private final List<JComponent> buttons = new ArrayList<>();
 
   public void addButtons(JComponent... buttonComponents) {
     buttons.addAll(Arrays.asList(buttonComponents));
@@ -34,13 +29,8 @@ public class DialogButtonBarBuilder {
   }
 
   public JComponent createButtonBar() {
-    ArrayList<JComponent> allLeftComponents = new ArrayList<JComponent>();
-    allLeftComponents.addAll(leftSideComponents);
 
-    JPanel panel = new JPanel(new GridDialogLayout(allLeftComponents.size() + 1, false));
-    for (JComponent component : allLeftComponents) {
-      panel.add(component);
-    }
+    JPanel panel = new JPanel(new GridDialogLayout(1, false));
     ButtonPanelBuilder buttonPanelBuilder = new ButtonPanelBuilder(LayoutDirection.HORIZONTAL);
     for (JComponent createdButton : buttons) {
       buttonPanelBuilder.add(createdButton);

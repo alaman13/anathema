@@ -66,7 +66,7 @@ public class MusicSelectionPresenter implements Presenter {
     trackListView.addListSelectionListener(new ListSelectionListener() {
       @Override
       public void valueChanged(ListSelectionEvent e) {
-        List<IMp3Track> trackList = new ArrayList<IMp3Track>();
+        List<IMp3Track> trackList = new ArrayList<>();
         for (IMp3Track trackObject : trackListView.getSelectedItems()) {
           trackList.add(trackObject);
         }

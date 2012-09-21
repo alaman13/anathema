@@ -21,13 +21,13 @@ public class CharmCardDataProvider extends AbstractMagicCardDataProvider {
 	
 	@Override
 	public ICardData[] getCards(ICharacter character, ICardReportResourceProvider fontProvider) {
-		List<ICardData> cards = new ArrayList<ICardData>();
+		List<ICardData> cards = new ArrayList<>();
 		for (ICharm charm : getCurrentCharms(character)) {
 			cards.add(new CharmCardData(charm, createCharmStats(character, charm),
 					getMagicDescription(charm),
 					fontProvider, getResources()));
 		}
-		return cards.toArray(new ICardData[0]);
+		return cards.toArray(new ICardData[cards.size()]);
 	}
 	
 	private ICharm[] getCurrentCharms(ICharacter character) {

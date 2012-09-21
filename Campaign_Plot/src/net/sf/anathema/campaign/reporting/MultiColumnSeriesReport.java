@@ -23,7 +23,7 @@ import net.sf.anathema.framework.repository.IItem;
 import net.sf.anathema.framework.styledtext.model.ITextPart;
 import net.sf.anathema.lib.resources.IResources;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class MultiColumnSeriesReport extends AbstractPdfReport {
 
@@ -151,7 +151,7 @@ public class MultiColumnSeriesReport extends AbstractPdfReport {
     return paragraph;
   }
 
-  private HashMap<String, Object> getAttributeMap(Chunk title) {
+  private Map<String, Object> getAttributeMap(Chunk title) {
     return title.getAttributes();
   }
 

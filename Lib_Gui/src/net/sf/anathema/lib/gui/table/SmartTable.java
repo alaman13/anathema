@@ -30,8 +30,8 @@ public class SmartTable implements IView {
   private boolean enabled = true;
   private final JTable table;
   private JPanel content;
-  private final List<ActionListener> selectionActionListeners = new ArrayList<ActionListener>();
-  private final List<ITableActionFactory> actionFactories = new ArrayList<ITableActionFactory>();
+  private final List<ActionListener> selectionActionListeners = new ArrayList<>();
+  private final List<ITableActionFactory> actionFactories = new ArrayList<>();
 
   private Action[] actions = new Action[0];
 
@@ -156,7 +156,7 @@ public class SmartTable implements IView {
   private void fireSelectionActionEvent() {
     List<ActionListener> clone;
     synchronized (this) {
-      clone = new ArrayList<ActionListener>(selectionActionListeners);
+      clone = new ArrayList<>(selectionActionListeners);
     }
     ActionEvent actionEvent = new ActionEvent(table, -1, "select"); //$NON-NLS-1$
     for (ActionListener element : clone) {

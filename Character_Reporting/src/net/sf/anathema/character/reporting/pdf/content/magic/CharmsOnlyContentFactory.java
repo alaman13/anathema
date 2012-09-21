@@ -17,6 +17,6 @@ public class CharmsOnlyContentFactory implements ReportContentFactory<CharmsOnly
 
   @Override
   public CharmsOnlyContent create(ReportSession session, IGenericCharacter character) {
-    return new CharmsOnlyContent (character, session, resources);
+    return new CharmsOnlyContent (session, resources);
   }
 }

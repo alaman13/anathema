@@ -10,7 +10,7 @@ import net.sf.anathema.lib.lang.ReflectionEqualsObject;
 
 public class CasteMinimumRestriction extends ReflectionEqualsObject implements IMinimumRestriction
 {
-	private final List<ITraitType> affectedTraitTypes = new ArrayList<ITraitType>();
+	private final List<ITraitType> affectedTraitTypes = new ArrayList<>();
 	private final String caste;
 	private boolean isFreebie;
 	IMinimumRestriction restriction;

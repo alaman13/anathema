@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SiderealFlawedFateView extends VirtueFlawView implements ISiderealFlawedFateView {
-  private final List<ITextView> textViews = new ArrayList<ITextView>();
+  private final List<ITextView> textViews = new ArrayList<>();
   
   public SiderealFlawedFateView(MarkerIntValueDisplayFactory factory)
   {

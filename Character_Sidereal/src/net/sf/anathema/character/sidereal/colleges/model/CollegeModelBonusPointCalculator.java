@@ -19,7 +19,7 @@ public class CollegeModelBonusPointCalculator implements IAdditionalModelBonusPo
       IAstrologicalHouse[] allHouses,
       ICollegeBonusPointCosts costs,
       IFavorableTraitCreationPoints points) {
-    List<IFavorableDefaultTrait> colleges = new ArrayList<IFavorableDefaultTrait>();
+    List<IFavorableDefaultTrait> colleges = new ArrayList<>();
     for (IAstrologicalHouse house : allHouses) {
       Collections.addAll(colleges, house.getColleges());
     }

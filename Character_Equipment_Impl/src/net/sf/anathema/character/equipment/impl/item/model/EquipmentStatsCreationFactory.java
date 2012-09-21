@@ -22,7 +22,6 @@ import net.sf.anathema.character.equipment.impl.character.model.stats.RangedWeap
 import net.sf.anathema.character.equipment.impl.character.model.stats.TraitModifyingStats;
 import net.sf.anathema.character.equipment.impl.creation.EquipmentStatisticsCreationViewFactory;
 import net.sf.anathema.character.equipment.impl.creation.model.EquipmentStatisticsCreationModel;
-import net.sf.anathema.character.equipment.impl.creation.model.WeaponTag;
 import net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType;
 import net.sf.anathema.character.equipment.item.model.ICollectionFactory;
 import net.sf.anathema.character.equipment.item.model.IEquipmentStatsCreationFactory;
@@ -139,7 +138,7 @@ public class EquipmentStatsCreationFactory implements IEquipmentStatsCreationFac
 
   private void fillWeaponTagsModel(IWeaponTagsModel weaponTagsModel, IWeaponStats weaponStats) {
     for (Identified tag : weaponStats.getTags()) {
-      weaponTagsModel.getSelectedModel((WeaponTag) tag).setValue(true);
+      weaponTagsModel.getSelectedModel((IWeaponTag) tag).setValue(true);
     }
   }
 

@@ -43,7 +43,7 @@ public class VoidstateCategorizedTokenRegistry implements ICategorizedTokenConfi
   public static final TokenCategory IN = new TokenCategory("Tokens.In"); //$NON-NLS-1$
   public static final TokenCategory THE = new TokenCategory("Tokens.The"); //$NON-NLS-1$
 
-  private final Map<TokenCategory, String[]> tokensByCategory = new HashMap<TokenCategory, String[]>();
+  private final Map<TokenCategory, String[]> tokensByCategory = new HashMap<>();
   private final TokenCategory[] rootTokenCategories = new TokenCategory[] {
       new AggregatedTokenCategory("Tokens.Adjectives", new TokenCategory[] { //$NON-NLS-1$
           COLOR, CONDITION, EMOTION_NEGATIVE, EMOTION_POSITIVE, HEROIC, MOVEMENT, NUMBER }),
@@ -112,7 +112,7 @@ public class VoidstateCategorizedTokenRegistry implements ICategorizedTokenConfi
   private String[] getAllAvailableTokens(TokenCategory tokenCategory) {
     if (tokenCategory instanceof AggregatedTokenCategory) {
       AggregatedTokenCategory aggregatedCategory = (AggregatedTokenCategory) tokenCategory;
-      List<String> allTokens = new ArrayList<String>();
+      List<String> allTokens = new ArrayList<>();
       for (TokenCategory subCategory : aggregatedCategory.getSubCateogories()) {
         Collections.addAll(allTokens, getAllAvailableTokens(subCategory));
       }

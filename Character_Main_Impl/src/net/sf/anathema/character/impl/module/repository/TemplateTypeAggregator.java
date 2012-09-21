@@ -20,7 +20,7 @@ public class TemplateTypeAggregator {
 
   public ITemplateTypeAggregation[] aggregateTemplates(ICharacterType type) {
     ICharacterExternalsTemplate[] templates = characterTemplateRegistry.getAllSupportedTemplates(type);
-    Map<ITemplateType, TemplateTypeAggregation> aggregations = new LinkedHashMap<ITemplateType, TemplateTypeAggregation>();
+    Map<ITemplateType, TemplateTypeAggregation> aggregations = new LinkedHashMap<>();
     for (ICharacterExternalsTemplate template : templates) {
       TemplateTypeAggregation aggregation = aggregations.get(template.getTemplateType());
       if (aggregation == null) {

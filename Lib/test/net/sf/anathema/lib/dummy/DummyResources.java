@@ -11,7 +11,7 @@ import net.sf.anathema.lib.resources.IResources;
 
 public class DummyResources implements IResources {
   public static final Icon ANY_ICON = new EmptyIcon();
-  private final Map<String, String> stringMap = new HashMap<String, String>();
+  private final Map<String, String> stringMap = new HashMap<>();
 
   @Override
   public boolean supportsKey(String key) {

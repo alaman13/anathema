@@ -81,8 +81,8 @@ public class BonusPointCostTemplateParser extends AbstractXmlTemplateParser<Gene
         charmElement,
         TAG_FAVORED_MARTIAL_ARTS_CHARMS,
         favoredCharmCost);
-    Map<String, Integer> keywordGeneralCost = new HashMap<String, Integer>();
-    Map<String, Integer> keywordFavoredCost = new HashMap<String, Integer>();
+    Map<String, Integer> keywordGeneralCost = new HashMap<>();
+    Map<String, Integer> keywordFavoredCost = new HashMap<>();
     for (Object keywordNode : charmElement.elements(TAG_KEYWORD_CHARMS))
     {
     	Element keywordClass = (Element) keywordNode;

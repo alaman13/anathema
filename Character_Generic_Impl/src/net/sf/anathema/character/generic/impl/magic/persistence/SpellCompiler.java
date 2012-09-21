@@ -16,7 +16,7 @@ import java.util.List;
 @ExtensibleDataSetCompiler
 public class SpellCompiler implements IExtensibleDataSetCompiler {
 	private static final String Spell_File_Recognition_Pattern = "Spells.*\\.xml";
-	private final List<Document> spellFileList = new ArrayList<Document>();
+	private final List<Document> spellFileList = new ArrayList<>();
 	private final SpellBuilder builder = new SpellBuilder();
 	private final SAXReader reader = new SAXReader();
 	private final SpellCache cache = new SpellCache();

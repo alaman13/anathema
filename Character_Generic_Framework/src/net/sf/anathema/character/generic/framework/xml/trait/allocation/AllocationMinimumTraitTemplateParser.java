@@ -34,7 +34,7 @@ public class AllocationMinimumTraitTemplateParser
     AllocationMinimumRestriction restriction = new AllocationMinimumRestriction(count, list);
     restriction.setIsFreebie(ElementUtilities.getBooleanAttribute(element, TAG_FREEBIE, false));
     list.add(restriction);
-    List<GenericRestrictedTraitTemplate> traitTemplates = new ArrayList<GenericRestrictedTraitTemplate>();
+    List<GenericRestrictedTraitTemplate> traitTemplates = new ArrayList<>();
     for (Element traitElement : ElementUtilities.elements(element, TAG_TRAIT)) {
       GenericTraitTemplate template = parseTraitTemplate(traitElement);
       ITraitType type = traitTypeGroup.getById(ElementUtilities.getRequiredAttrib(traitElement, ATTRIB_ID));

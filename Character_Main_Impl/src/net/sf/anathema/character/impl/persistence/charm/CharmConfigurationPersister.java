@@ -173,7 +173,7 @@ public class CharmConfigurationPersister {
       if (specialElement != null && specialConfiguration != null) {
         specialPersister.loadConfiguration(specialElement, specialConfiguration);
       } else if (specialConfiguration instanceof IMultiLearnableCharmConfiguration) {
-        ((IMultiLearnableCharmConfiguration) specialConfiguration).learn(isExperienceLearned(charmElement));
+        specialConfiguration.learn(isExperienceLearned(charmElement));
       }
     } catch (IllegalArgumentException e) {
       messageIndicator.addMessage("CharmPersistence.NoCharmFound", //$NON-NLS-1$

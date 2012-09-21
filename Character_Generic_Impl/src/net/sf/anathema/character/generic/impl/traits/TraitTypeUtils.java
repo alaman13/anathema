@@ -1,6 +1,7 @@
 package net.sf.anathema.character.generic.impl.traits;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import net.sf.anathema.character.generic.traits.ITraitType;
 import net.sf.anathema.character.generic.traits.types.AbilityType;
@@ -11,24 +12,15 @@ import net.sf.anathema.character.generic.traits.types.YoziType;
 
 public class TraitTypeUtils {
 
-  private final ArrayList<ITraitType> allPrerequisiteTypeList = new ArrayList<ITraitType>();
+  private final ArrayList<ITraitType> allPrerequisiteTypeList = new ArrayList<>();
 
   private ITraitType[] getAllCoreTraitTypes() {
     if (allPrerequisiteTypeList.isEmpty()) {
-      for (ITraitType type : AbilityType.values()) {
-        allPrerequisiteTypeList.add(type);
-      }
-      for (ITraitType type : AttributeType.values()) {
-        allPrerequisiteTypeList.add(type);
-      }
-      for (ITraitType type : VirtueType.values()) {
-        allPrerequisiteTypeList.add(type);
-      }
-      for (ITraitType type : YoziType.values())
-      	allPrerequisiteTypeList.add(type);
-      for (ITraitType type : OtherTraitType.values()) {
-        allPrerequisiteTypeList.add(type);
-      }
+      Collections.addAll(allPrerequisiteTypeList, AbilityType.values());
+      Collections.addAll(allPrerequisiteTypeList, AttributeType.values());
+      Collections.addAll(allPrerequisiteTypeList, VirtueType.values());
+      Collections.addAll(allPrerequisiteTypeList, YoziType.values());
+      Collections.addAll(allPrerequisiteTypeList, OtherTraitType.values());
     }
     return allPrerequisiteTypeList.toArray(new ITraitType[allPrerequisiteTypeList.size()]);
   }

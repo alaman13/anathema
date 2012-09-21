@@ -29,7 +29,7 @@ public class PresentationPropertiesParserTest {
 
   @Before
   public void setUp() throws Exception {
-    DummyXmlTemplateRegistry<GenericPresentationTemplate> templateRegistry = new DummyXmlTemplateRegistry<GenericPresentationTemplate>();
+    DummyXmlTemplateRegistry<GenericPresentationTemplate> templateRegistry = new DummyXmlTemplateRegistry<>();
     this.parser = new PresentationPropertiesParser(templateRegistry);
   }
 

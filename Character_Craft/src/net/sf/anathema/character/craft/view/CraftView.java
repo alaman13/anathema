@@ -48,7 +48,7 @@ public class CraftView extends AbstractRemovableEntryView<IRemovableTraitView<Si
   @Override
   public IRemovableTraitView<SimpleTraitView> addEntryView(Icon removeIcon, IModifiableCapTrait trait, String string) {
     SimpleTraitView view = new SimpleTraitView(factory, string, 0, traitMaximum, trait, GridAlignment.FILL);
-    RearButtonTraitViewWrapper<SimpleTraitView> traitView = new RearButtonTraitViewWrapper<SimpleTraitView>(
+    RearButtonTraitViewWrapper<SimpleTraitView> traitView = new RearButtonTraitViewWrapper<>(
         view,
         removeIcon);
     traitView.addComponents(entryPanel);

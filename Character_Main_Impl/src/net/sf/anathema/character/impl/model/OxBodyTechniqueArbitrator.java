@@ -8,7 +8,7 @@ import net.sf.anathema.character.model.charm.special.IOxBodyTechniqueConfigurati
 import net.sf.anathema.character.model.health.IOxBodyTechniqueArbitrator;
 
 public class OxBodyTechniqueArbitrator implements IOxBodyTechniqueArbitrator {
-  private final List<IOxBodyTechniqueConfiguration> oxBodyList = new ArrayList<IOxBodyTechniqueConfiguration>();
+  private final List<IOxBodyTechniqueConfiguration> oxBodyList = new ArrayList<>();
   private final IGenericTrait[] controllingTraits;
 
   public OxBodyTechniqueArbitrator(IGenericTrait[] toughnessControllingTraits) {

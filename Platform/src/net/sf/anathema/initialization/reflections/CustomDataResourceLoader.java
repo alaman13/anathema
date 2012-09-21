@@ -9,7 +9,6 @@ import net.sf.anathema.lib.resources.ResourceFile;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Set;
 
 public class CustomDataResourceLoader implements ResourceLoader {
@@ -29,7 +28,7 @@ public class CustomDataResourceLoader implements ResourceLoader {
         return name.matches(namePattern);
       }
     }));
-    HashSet<ResourceFile> resourceFiles = Sets.newHashSet();
+    Set<ResourceFile> resourceFiles = Sets.newHashSet();
     for (File file : customFiles) {
       resourceFiles.add(new ExternalResourceFile(file));
     }

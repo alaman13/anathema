@@ -29,13 +29,12 @@ public class SimpleIntimaciesContent extends AbstractSubBoxContent implements Li
 
   @Override
   public List<String> getPrintEntries() {
-    List<String> printIntimacies = new ArrayList<String>();
-    for (Iterator<IIntimacy> intimacies = getModel().getEntries().iterator(); intimacies.hasNext(); ) {
-      IIntimacy intimacy = intimacies.next();
+    List<String> printIntimacies = new ArrayList<>();
+    for (IIntimacy intimacy : getModel().getEntries()) {
       String text = intimacy.getName();
       if (!intimacy.isComplete()) {
         text +=
-          " (" + intimacy.getTrait().getCurrentValue() + "/" + intimacy.getTrait().getMaximalValue() + ")"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                " (" + intimacy.getTrait().getCurrentValue() + "/" + intimacy.getTrait().getMaximalValue() + ")";
       }
       printIntimacies.add(text);
     }

@@ -103,7 +103,7 @@ public class InfernalSpellMagicTemplate extends SpellMagicTemplate {
   }
 
   public String[] getInitiations(CircleType circle) {
-    final List<String> names = new ArrayList<String>();
+    final List<String> names = new ArrayList<>();
     for (final YoziType yozi : YoziType.values()) {
       circle.accept(new ICircleTypeVisitor() {
         @Override

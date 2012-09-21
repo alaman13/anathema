@@ -8,7 +8,7 @@ import net.sf.anathema.lib.util.Identificate;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -36,7 +36,7 @@ public class CharmCacheTest {
   }
 
   private void addSpecialCharmForSolar(ISpecialCharm specialCharm, Identificate solar) {
-    ArrayList<ISpecialCharm> data = Lists.newArrayList(specialCharm);
+    List<ISpecialCharm> data = Lists.newArrayList(specialCharm);
     cache.addSpecialCharmData(solar, data);
   }
 }

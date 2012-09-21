@@ -75,7 +75,7 @@ public final class ExaltedCharacterItemTypeConfiguration extends AbstractPersist
         PointPresentationStrategy pointPresentation =
                 choosePointPresentation(character, characterView, bonusPointManagement, experiencePointManagement, resources);
         new CharacterPresenter((ICharacter) item.getItemData(), characterView, resources, anathemaModel, pointPresentation).initPresentation();
-        ((ICharacter) item.getItemData()).setClean();
+        item.getItemData().setClean();
         return characterView;
       }
     };

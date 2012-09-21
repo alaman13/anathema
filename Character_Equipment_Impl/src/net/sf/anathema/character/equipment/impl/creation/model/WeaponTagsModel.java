@@ -12,9 +12,9 @@ import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueModel;
 
 public class WeaponTagsModel implements IWeaponTagsModel {
 
-  private final Map<WeaponTag, BooleanValueModel> enabledMap = new EnumMap<WeaponTag, BooleanValueModel>(
+  private final Map<WeaponTag, BooleanValueModel> enabledMap = new EnumMap<>(
       WeaponTag.class);
-  private final Map<WeaponTag, BooleanValueModel> selectedMap = new EnumMap<WeaponTag, BooleanValueModel>(
+  private final Map<WeaponTag, BooleanValueModel> selectedMap = new EnumMap<>(
       WeaponTag.class);
 
   private final IBooleanValueChangedListener updateRangeEnabledListener = new IBooleanValueChangedListener() {
@@ -51,7 +51,7 @@ public class WeaponTagsModel implements IWeaponTagsModel {
 
   @Override
   public IWeaponTag[] getSelectedTags() {
-    List<IWeaponTag> tags = new ArrayList<IWeaponTag>();
+    List<IWeaponTag> tags = new ArrayList<>();
     for (WeaponTag tag : selectedMap.keySet()) {
       if (isSelected(tag)) {
         tags.add(tag);

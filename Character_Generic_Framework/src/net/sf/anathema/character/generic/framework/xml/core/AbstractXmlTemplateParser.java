@@ -14,7 +14,7 @@ public abstract class AbstractXmlTemplateParser<T extends ICloneable<T>> impleme
   private static final String ATTRIB_USES = "uses"; //$NON-NLS-1$
   private static final String ATTRIB_PREFIX = "prefix"; //$NON-NLS-1$
 
-  private final IWorkingTemplateFactory<T> workingTemplateFactory = new ClonedInstanceWorkingTemplateFactory<T>();
+  private final IWorkingTemplateFactory<T> workingTemplateFactory = new ClonedInstanceWorkingTemplateFactory<>();
 
   public AbstractXmlTemplateParser(IXmlTemplateRegistry<T> templateRegistry) {
     this.templateRegistry = templateRegistry;

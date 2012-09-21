@@ -18,20 +18,20 @@ import java.util.Map;
 public class DemocritusCardResourceProvider implements ICardReportResourceProvider {
 	private IResources resources;
 	
-	private final String basePath = "democritus_base/";
-	private final String characterPath = "character/";
-	private final String traitPath = "traits/";
-	private final String spellPath = "spell/";
-	private final String martialArtPath = "martial_art/";
-	private final String martialArtLevelPath = "martial_art_level/";
-	private final String cardBackground = "card_base.png";
-	private final String cardStatBlock = "card_stats.png";
-	private final String cardBodyBlock = "card_body.png";
-	private final String cardIconBlock = "card_icon.png";
-	private final String cardIconShadow = "card_icon_shadow.png";
-	private final String nullIcon = "null.png";
+	private final static String basePath = "democritus_base/";
+	private final static String characterPath = "character/";
+	private final static String traitPath = "traits/";
+	private final static String spellPath = "spell/";
+	private final static String martialArtPath = "martial_art/";
+	private final static String martialArtLevelPath = "martial_art_level/";
+	private final static String cardBackground = "card_base.png";
+	private final static String cardStatBlock = "card_stats.png";
+	private final static String cardBodyBlock = "card_body.png";
+	private final static String cardIconBlock = "card_icon.png";
+	private final static String cardIconShadow = "card_icon_shadow.png";
+	private final static String nullIcon = "null.png";
 	
-	private final Map<String, Image> imageMap = new HashMap<String, Image>(); 
+	private final Map<String, Image> imageMap = new HashMap<>();
 	
 	private final int MAGIC_TITLE_FONT_SIZE = 8;
 	private final int MAGIC_NORMAL_FONT_SIZE = 8;

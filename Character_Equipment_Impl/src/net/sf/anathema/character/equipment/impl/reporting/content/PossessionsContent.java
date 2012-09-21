@@ -29,24 +29,23 @@ public class PossessionsContent extends AbstractSubBoxContent implements ListSub
 
   @Override
   public List<String> getPrintEntries() {
-    List<String> printPossessions = new ArrayList<String>();
+    List<String> printPossessions = new ArrayList<>();
     IEquipmentItem[] equipmentItems = getEquipmentItems();
-    for (int index = 0; index < equipmentItems.length; index++) {
-      IEquipmentItem item = equipmentItems[index];
-      if (isInArsenalOrPanopoly(item)) {
+    for (IEquipmentItem item : equipmentItems) {
+      if (isInArsenalOrPanoply(item)) {
         continue;
       }
       String possession = item.getTitle();
       if (item.getMaterialComposition() == MaterialComposition.Fixed ||
-    	  item.getMaterialComposition() == MaterialComposition.Variable) {
-    	  possession += " (" + item.getMaterial().getId() + ")";
+              item.getMaterialComposition() == MaterialComposition.Variable) {
+        possession += " (" + item.getMaterial().getId() + ")";
       }
       printPossessions.add(possession);
     }
     return printPossessions;
   }
   
-  private boolean isInArsenalOrPanopoly(IEquipmentItem item) {
+  private boolean isInArsenalOrPanoply(IEquipmentItem item) {
 	  for (IEquipmentStats stats : item.getStats()) {
 		  if (stats.representsItemForUseInCombat() && item.isPrintEnabled(stats))
 			  return true;

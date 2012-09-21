@@ -1,6 +1,7 @@
 package net.sf.anathema.character.generic.framework.magic;
 
 import net.sf.anathema.character.generic.magic.ICharm;
+import net.sf.anathema.character.generic.magic.ICharmData;
 import net.sf.anathema.character.generic.magic.IMagic;
 import net.sf.anathema.character.generic.template.magic.FavoringTraitType;
 import net.sf.anathema.character.generic.traits.ITraitType;
@@ -14,8 +15,8 @@ public class MagicDisplayLabeler {
 	}
 	
 	public String getLabelForMagic(IMagic magic) {
-		if (magic instanceof ICharm && ((ICharm)magic).isInstanceOfGenericCharm()) {
-			ITraitType charmType = ((ICharm)magic).getPrimaryTraitType();
+		if (magic instanceof ICharm && ((ICharmData) magic).isInstanceOfGenericCharm()) {
+			ITraitType charmType = ((ICharmData) magic).getPrimaryTraitType();
 			String baseCharmId = getGenericCharmBaseId((ICharm) magic);
 			return resources.getString(baseCharmId, resources.getString(charmType.getId()));
 		}
@@ -23,8 +24,8 @@ public class MagicDisplayLabeler {
 	}
 	
 	public String getGenericLabelForMagic(IMagic magic) {
-		if (magic instanceof ICharm && ((ICharm)magic).isInstanceOfGenericCharm()) {
-			FavoringTraitType charmType = ((ICharm)magic).getCharacterType().getFavoringTraitType();
+		if (magic instanceof ICharm && ((ICharmData) magic).isInstanceOfGenericCharm()) {
+			FavoringTraitType charmType = ((ICharmData) magic).getCharacterType().getFavoringTraitType();
 			String traitString = "(" + resources.getString(charmType.getId()) + ")";
 			String baseCharmId = getGenericCharmBaseId((ICharm) magic);
 			return resources.getString(baseCharmId, traitString);
@@ -34,7 +35,7 @@ public class MagicDisplayLabeler {
 	
 	public boolean supportsMagic(IMagic magic) {
 		if (magic == null) return false;
-		if (magic instanceof ICharm && ((ICharm)magic).isInstanceOfGenericCharm()) {
+		if (magic instanceof ICharm && ((ICharmData) magic).isInstanceOfGenericCharm()) {
 			String baseCharmId = getGenericCharmBaseId((ICharm) magic);
 			return resources.supportsKey(baseCharmId);
 		}

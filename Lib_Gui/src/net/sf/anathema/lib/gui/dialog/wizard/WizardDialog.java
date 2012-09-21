@@ -37,7 +37,7 @@ public class WizardDialog extends AbstractDialog implements IWizardContainer, ID
   private JButton nextButton;
   private IWizardPage currentPage;
   private final IWizardConfiguration configuration;
-  private final Collection<IWizardPage> pages = new HashSet<IWizardPage>();
+  private final Collection<IWizardPage> pages = new HashSet<>();
 
   private final RequestFinishListener requestFinishListener = new RequestFinishListener() {
     @Override

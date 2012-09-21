@@ -29,7 +29,7 @@ public class MagicLearnView implements IMagicLearnView {
   private final Announcer<IMagicViewListener> control = Announcer.to(IMagicViewListener.class);
   private JList learnOptionsList = new JList(new DefaultListModel());
   private final JList learnedList = new JList(new DefaultListModel());
-  private final List<JButton> endButtons = new ArrayList<JButton>();
+  private final List<JButton> endButtons = new ArrayList<>();
   private JPanel boxPanel;
   private JButton addButton;
 

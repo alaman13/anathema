@@ -47,8 +47,8 @@ public class LibraryControlView implements ILibraryControlView, IView {
 
   public LibraryControlView(ITableColumnViewSettings settings, ILibraryControlProperties properties) {
     this.viewProperties = properties;
-    libraryListView = new EditableActionAddableListView<ILibrary>(null, settings);
-    mp3ListView = new ActionAddableListView<IMp3Track>(viewProperties.getNoContentString());
+    libraryListView = new EditableActionAddableListView<>(null, settings);
+    mp3ListView = new ActionAddableListView<>(viewProperties.getNoContentString());
   }
 
   @Override

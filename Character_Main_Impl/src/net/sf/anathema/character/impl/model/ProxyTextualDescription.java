@@ -9,7 +9,7 @@ import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
 public class ProxyTextualDescription implements ITextualDescription {
 
   private final ITextualDescription[] descriptions;
-  private final List<ObjectValueListener<String>> listeners = new ArrayList<ObjectValueListener<String>>();
+  private final List<ObjectValueListener<String>> listeners = new ArrayList<>();
   private int currentDescriptionIndex = 0;
 
   public ProxyTextualDescription(ITextualDescription... descriptions) {

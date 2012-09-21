@@ -8,10 +8,10 @@ import net.sf.anathema.initialization.repository.IFileSystemAbstraction;
 
 public class DummyFileSystemAbstraction implements IFileSystemAbstraction {
 
-  private final List<File> existingFiles = new ArrayList<File>();
-  private final List<File> createdFolders = new ArrayList<File>();
-  private final List<File> writeProtectedFiles = new ArrayList<File>();
-  private final List<File> readProtectedFiles = new ArrayList<File>();
+  private final List<File> existingFiles = new ArrayList<>();
+  private final List<File> createdFolders = new ArrayList<>();
+  private final List<File> writeProtectedFiles = new ArrayList<>();
+  private final List<File> readProtectedFiles = new ArrayList<>();
 
   public boolean wasCreated(File file) {
     return createdFolders.contains(file);

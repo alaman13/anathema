@@ -5,24 +5,21 @@ import net.sf.anathema.character.generic.impl.magic.CharmAttributeRequirement;
 import net.sf.anathema.character.generic.magic.ICharm;
 import net.sf.anathema.dummy.character.magic.DummyCharm;
 import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class CharmNodeBuilderTest {
 
-  private ArrayList<ICharm> list;
-  private LinkedHashMap<String, IIdentifiedRegularNode> nodes;
-
-  @Before
-  public void setUp() throws Exception {
-    list = new ArrayList<ICharm>();
-    nodes = new LinkedHashMap<String, IIdentifiedRegularNode>();
-  }
+  private List<ICharm> list = new ArrayList<>();
+  private LinkedHashMap<String, IIdentifiedRegularNode> nodes = new LinkedHashMap<>();
 
   @Test
   public void testNoCharms() throws Exception {

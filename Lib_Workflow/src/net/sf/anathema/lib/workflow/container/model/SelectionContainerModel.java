@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class SelectionContainerModel<V> implements ISelectionContainerModel<V> {
 
   public static <V> SelectionContainerModel<V> createDefault(Class<V> componentType, V[] availableValues) {
-    return new SelectionContainerModel<V>(new DefaultSelectionContainer<V>(componentType, availableValues));
+    return new SelectionContainerModel<>(new DefaultSelectionContainer<>(componentType, availableValues));
   }
 
   private final Announcer<IChangeListener> changeControl = Announcer.to(IChangeListener.class);

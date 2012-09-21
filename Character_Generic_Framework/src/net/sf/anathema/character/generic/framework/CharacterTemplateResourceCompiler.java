@@ -18,7 +18,7 @@ public class CharacterTemplateResourceCompiler implements IExtensibleDataSetComp
 	private static final String CHARACTER_FILE_RECOGNITION_PATTERN = "Character_(.+?)_(.+?)\\.xml";
 	private static final String CHARACTER_DATA_EXTRACTION_PATTERN = ".*/Character_(.+?)_(.+?)\\.xml";
 	  
-	private final Map<String, List<ResourceFile>> templateResources = new HashMap<String, List<ResourceFile>>();
+	private final Map<String, List<ResourceFile>> templateResources = new HashMap<>();
 
 	@Override
 	public String getName() {
@@ -37,7 +37,7 @@ public class CharacterTemplateResourceCompiler implements IExtensibleDataSetComp
 	    String typeString = matcher.group(1);
 	    List<ResourceFile> resources = templateResources.get(typeString);
 	    if (resources == null) {
-	    	resources = new ArrayList<ResourceFile>();
+	    	resources = new ArrayList<>();
 	    	templateResources.put(typeString, resources);
 	    }
 	    resources.add(resource);

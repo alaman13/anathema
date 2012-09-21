@@ -7,6 +7,7 @@ import net.sf.anathema.character.generic.character.ILimitationContext;
 import net.sf.anathema.character.generic.dummy.DummyAdditionalBonusPointManagment;
 import net.sf.anathema.character.generic.dummy.DummyGenericCharacter;
 import net.sf.anathema.character.generic.dummy.template.DummyCharacterTemplate;
+import net.sf.anathema.character.generic.framework.additionaltemplate.model.IModifiableBasicTrait;
 import net.sf.anathema.character.generic.impl.additional.NullAdditionalRules;
 import net.sf.anathema.character.generic.impl.template.points.AttributeCreationPoints;
 import net.sf.anathema.character.generic.impl.template.points.DefaultBonusPointCosts;
@@ -29,7 +30,6 @@ import net.sf.anathema.character.library.trait.IValueChangeChecker;
 import net.sf.anathema.character.library.trait.favorable.GrumpyIncrementChecker;
 import net.sf.anathema.character.library.trait.rules.FavorableTraitRules;
 import net.sf.anathema.character.library.trait.rules.TraitRules;
-import net.sf.anathema.character.library.trait.visitor.IDefaultTrait;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -72,13 +72,13 @@ public class AttributeCostCalculatorTest {
     int remainingPointsToSpent = pointsToSpent;
     for (ITrait attribute : groupAttributes) {
       int toSpent = Math.min(perAttribute, remainingPointsToSpent);
-      ((IDefaultTrait) attribute).setCreationValue(1 + toSpent);
+      ((IModifiableBasicTrait) attribute).setCreationValue(1 + toSpent);
       remainingPointsToSpent -= toSpent;
     }
   }
 
   private void assertAllPointsToSpendUsed(int[] dotsToSpend) {
-    List<Integer> dotsToSpendList = new ArrayList<Integer>();
+    List<Integer> dotsToSpendList = new ArrayList<>();
     for (int dot : dotsToSpend) {
       dotsToSpendList.add(dot);
     }

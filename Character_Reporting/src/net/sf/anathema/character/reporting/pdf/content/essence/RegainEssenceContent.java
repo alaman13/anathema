@@ -15,11 +15,8 @@ import java.util.List;
 
 public class RegainEssenceContent extends AbstractSubContent implements SubBoxContent{
 
-  private IGenericCharacter character;
-
-  public RegainEssenceContent(IResources resources, IGenericCharacter character) {
+  public RegainEssenceContent(IResources resources) {
     super(resources);
-    this.character = character;
   }
 
   public List<RecoveryRow> getRecoveryRows() {
@@ -37,7 +34,7 @@ public class RegainEssenceContent extends AbstractSubContent implements SubBoxCo
   }
 
   private List<RecoveryRow> getAvailableRecoveryRows() {
-    List<RecoveryRow> rows = new ArrayList<RecoveryRow>();
+    List<RecoveryRow> rows = new ArrayList<>();
     rows.add(new NaturalRecoveryRow(getResources()));
     addSpecialRecoveryRows(rows);
     rows.add(new TotalRecoveryRow(getResources()));

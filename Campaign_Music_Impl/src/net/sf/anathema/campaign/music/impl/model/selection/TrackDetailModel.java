@@ -14,7 +14,7 @@ import net.sf.anathema.lib.workflow.container.model.SelectionContainerModel;
 public class TrackDetailModel extends AbstractTrackDetailModel {
 
   private final MusicDatabasePersister persister;
-  private final SelectionContainerModel<IMusicMood> moodsModel = new SelectionContainerModel<IMusicMood>(
+  private final SelectionContainerModel<IMusicMood> moodsModel = new SelectionContainerModel<>(
       new IGenericSelectionContainer<IMusicMood>() {
         private IMusicMood[] selectedValues = new IMusicMood[0];
 
@@ -38,7 +38,7 @@ public class TrackDetailModel extends AbstractTrackDetailModel {
           return new MoodProvider(persister).getAvailableValues();
         }
       });
-  private final SelectionContainerModel<IMusicTheme> themesModel = new SelectionContainerModel<IMusicTheme>(
+  private final SelectionContainerModel<IMusicTheme> themesModel = new SelectionContainerModel<>(
       new IGenericSelectionContainer<IMusicTheme>() {
         private IMusicTheme[] selectedValues = new IMusicTheme[0];
 
@@ -63,7 +63,7 @@ public class TrackDetailModel extends AbstractTrackDetailModel {
         }
       });
 
-  private final SelectionContainerModel<IMusicEvent> eventsModel = new SelectionContainerModel<IMusicEvent>(
+  private final SelectionContainerModel<IMusicEvent> eventsModel = new SelectionContainerModel<>(
       new IGenericSelectionContainer<IMusicEvent>() {
         private IMusicEvent[] selectedValues = new IMusicEvent[0];
 

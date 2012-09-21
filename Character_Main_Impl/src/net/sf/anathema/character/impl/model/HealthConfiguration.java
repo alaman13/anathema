@@ -15,8 +15,8 @@ import net.sf.anathema.character.model.traits.ICoreTraitConfiguration;
 
 public class HealthConfiguration implements IHealthConfiguration {
 
-  private final List<IHealthLevelProvider> healthLevelProviders = new ArrayList<IHealthLevelProvider>();
-  private final List<IPainToleranceProvider> painResistanceProviders = new ArrayList<IPainToleranceProvider>();
+  private final List<IHealthLevelProvider> healthLevelProviders = new ArrayList<>();
+  private final List<IPainToleranceProvider> painResistanceProviders = new ArrayList<>();
   private final OxBodyTechniqueArbitrator arbitrator;
 
   public HealthConfiguration(IGenericTrait[] toughnessControllingTraits) {

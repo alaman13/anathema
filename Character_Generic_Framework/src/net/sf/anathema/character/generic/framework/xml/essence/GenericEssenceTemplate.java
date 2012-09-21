@@ -24,7 +24,7 @@ public class GenericEssenceTemplate extends ReflectionCloneableObject<GenericEss
     if (poolConfiguration == null) {
       return new FactorizedTrait[0];
     }
-    List<FactorizedTrait> traits = new ArrayList<FactorizedTrait>();
+    List<FactorizedTrait> traits = new ArrayList<>();
     traits.add(new FactorizedTrait(essence, poolConfiguration.getEssenceMultiplier()));
     traits.add(new FactorizedTrait(willpower, poolConfiguration.getWillpowerMultiplier()));
     Collections.addAll(traits, poolConfiguration.createVirtueFactorizedTrait(virtues));

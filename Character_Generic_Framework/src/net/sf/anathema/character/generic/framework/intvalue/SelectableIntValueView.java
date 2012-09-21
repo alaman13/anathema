@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 
 public class SelectableIntValueView<V> implements ISelectableIntValueView<V> {
 
-  private final IChangeableJComboBox<V> objectSelectionBox = new ChangeableJComboBox<V>(false);
+  private final IChangeableJComboBox<V> objectSelectionBox = new ChangeableJComboBox<>(false);
 
   private final IIntValueDisplay valueDisplay;
   private final Announcer<ISelectionIntValueChangedListener> control = Announcer.to(ISelectionIntValueChangedListener.class);

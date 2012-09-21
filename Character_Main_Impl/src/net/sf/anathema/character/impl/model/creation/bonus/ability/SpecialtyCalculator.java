@@ -24,7 +24,7 @@ public class SpecialtyCalculator {
 
   public int getSpecialtyCosts(IGenericSpecialty[] specialties) {
     List<IGenericSpecialty> favoredSpecialties = getFavoredSpecialties(Arrays.asList(specialties));
-    List<IGenericSpecialty> unfavoredSpecialties = new ArrayList<IGenericSpecialty>(Arrays.asList(specialties));
+    List<IGenericSpecialty> unfavoredSpecialties = new ArrayList<>(Arrays.asList(specialties));
     unfavoredSpecialties.removeAll(favoredSpecialties);
     int favoredCount = favoredSpecialties.size();
     int unfavoredCount = unfavoredSpecialties.size();
@@ -38,7 +38,7 @@ public class SpecialtyCalculator {
   }
 
   private List<IGenericSpecialty> getFavoredSpecialties(List<IGenericSpecialty> specialties) {
-    List<IGenericSpecialty> favoredSpecialties = new ArrayList<IGenericSpecialty>();
+    List<IGenericSpecialty> favoredSpecialties = new ArrayList<>();
     for (IGenericSpecialty specialty : specialties) {
       if (traitConfiguration.getFavorableTrait(specialty.getBasicTrait().getType()).isCasteOrFavored()) {
         favoredSpecialties.add(specialty);
@@ -56,7 +56,7 @@ public class SpecialtyCalculator {
       return;
     }
     List<IGenericSpecialty> favoredSpecialties = getFavoredSpecialties(specialties);
-    List<IGenericSpecialty> unfavoredSpecialties = new ArrayList<IGenericSpecialty>(specialties);
+    List<IGenericSpecialty> unfavoredSpecialties = new ArrayList<>(specialties);
     unfavoredSpecialties.removeAll(favoredSpecialties);
     int favoredRest = favoredSpecialties.size() % costs.getFavoredSpecialtyDotsPerPoint();
     if (overhead > 0 && favoredRest > 0) {
@@ -76,7 +76,7 @@ public class SpecialtyCalculator {
       removeSpecifiedNumber(unfavoredSpecialties, costs.getDefaultSpecialtyDotsPerPoint());
       overhead--;
     }
-    List<IGenericSpecialty> affordableSpecialties = new ArrayList<IGenericSpecialty>();
+    List<IGenericSpecialty> affordableSpecialties = new ArrayList<>();
     affordableSpecialties.addAll(favoredSpecialties);
     affordableSpecialties.addAll(unfavoredSpecialties);
     specialties.retainAll(affordableSpecialties);

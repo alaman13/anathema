@@ -9,7 +9,7 @@ import net.sf.anathema.framework.repository.ItemType;
 
 public class ItemTypeRegistry implements IItemTypeRegistry {
 
-  private final List<IItemType> itemTypes = new ArrayList<IItemType>();
+  private final List<IItemType> itemTypes = new ArrayList<>();
 
   @Override
   public IItemType getById(String id) {
@@ -29,6 +29,6 @@ public class ItemTypeRegistry implements IItemTypeRegistry {
 
   @Override
   public IItemType[] getAllItemTypes() {
-    return itemTypes.toArray(new ItemType[itemTypes.size()]);
+    return itemTypes.toArray(new IItemType[itemTypes.size()]);
   }
 }

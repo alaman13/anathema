@@ -20,7 +20,7 @@ public class CharacterDescriptionView implements ICharacterDescriptionView {
 
   private static final int TEXT_COLUMNS = 45;
   private final JPanel content = new JPanel(new GridDialogLayout(3, false));
-  private final List<JPanel> buttonPanels = new ArrayList<JPanel>();
+  private final List<JPanel> buttonPanels = new ArrayList<>();
 
   @Override
   public IMultiComponentLine addMultiComponentLine() {

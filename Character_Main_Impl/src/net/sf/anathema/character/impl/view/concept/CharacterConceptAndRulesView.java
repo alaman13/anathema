@@ -29,7 +29,7 @@ public class CharacterConceptAndRulesView extends
 
   private final JPanel conceptPanel = new JPanel(new GridDialogLayout(3, false));
   private final JPanel rulesPanel = new JPanel(new GridDialogLayout(1, false));
-  private final List<JPanel> buttonPanels = new ArrayList<JPanel>();
+  private final List<JPanel> buttonPanels = new ArrayList<>();
 
   @Override
   protected void createContent(JPanel panel, ICharacterConceptAndRulesViewProperties properties) {
@@ -46,7 +46,7 @@ public class CharacterConceptAndRulesView extends
       V[] objects,
       ListCellRenderer renderer,
       boolean editable) {
-    ObjectSelectionView<V> selectionView = new ObjectSelectionView<V>(labelText, renderer, editable, objects);
+    ObjectSelectionView<V> selectionView = new ObjectSelectionView<>(labelText, renderer, editable, objects);
     selectionView.getComboBox().getEditor().getEditorComponent().setEnabled(true);
     selectionView.setDisabledLabelColor(Color.DARK_GRAY);
     selectionView.addTo(conceptPanel, GridDialogLayoutDataFactory.createHorizontalFillNoGrab());

@@ -13,9 +13,9 @@ public class ComboRestrictions implements IComboRestrictions {
   private final boolean allAbilities;
   private final String[] selectAbilities;
   private final Boolean combosAllowed;
-  private final List<String> restrictedCharmIds = new ArrayList<String>();
-  private final List<CharmType> restrictedCharmTypes = new ArrayList<CharmType>();
-  private final List<ITraitType> restrictedTraitTypes = new ArrayList<ITraitType>();
+  private final List<String> restrictedCharmIds = new ArrayList<>();
+  private final List<CharmType> restrictedCharmTypes = new ArrayList<>();
+  private final List<ITraitType> restrictedTraitTypes = new ArrayList<>();
 
   public ComboRestrictions() {
     this(false, null);

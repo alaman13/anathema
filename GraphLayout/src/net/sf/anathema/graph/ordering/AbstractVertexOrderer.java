@@ -91,7 +91,7 @@ public abstract class AbstractVertexOrderer implements IVertexOrderer {
   }
 
   protected MultiEntryMap<Double, Integer> getWeightSeparation(WeightedNode[] weightedLayerNodes) {
-    MultiEntryMap<Double, Integer> nodeIndicesByWeight = new MultiEntryMap<Double, Integer>();
+    MultiEntryMap<Double, Integer> nodeIndicesByWeight = new MultiEntryMap<>();
     for (int index = 0; index < weightedLayerNodes.length; index++) {
       Double weight = weightedLayerNodes[index].getWeight();
       if (weight != null) {
@@ -109,7 +109,7 @@ public abstract class AbstractVertexOrderer implements IVertexOrderer {
       return;
     }
     int[] indexArray = new int[originalIndices.length];
-    Map<Integer, WeightedNode> nodesByOriginalIndex = new HashMap<Integer, WeightedNode>();
+    Map<Integer, WeightedNode> nodesByOriginalIndex = new HashMap<>();
     for (int indexIndex = 0; indexIndex < originalIndices.length; indexIndex++) {
       int originalIndex = originalIndices[indexIndex];
       indexArray[indexIndex] = originalIndex;

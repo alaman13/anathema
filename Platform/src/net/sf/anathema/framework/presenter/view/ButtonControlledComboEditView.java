@@ -32,7 +32,7 @@ public class ButtonControlledComboEditView<V> implements IButtonControlledComboE
   }
 
   public ButtonControlledComboEditView(Icon addIcon, String labelText, ListCellRenderer renderer) {
-    this.comboBox = new ChangeableJComboBox<V>(false);
+    this.comboBox = new ChangeableJComboBox<>(false);
     comboBox.setRenderer(renderer);
     this.text = new JTextField(30);
     this.addButton = new JButton(null, addIcon);

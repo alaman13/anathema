@@ -13,7 +13,7 @@ import net.sf.anathema.lib.exception.NotYetImplementedException;
 
 public class DummySpellConfiguration implements ISpellConfiguration {
 
-  private List<ISpell> spells = new ArrayList<ISpell>();
+  private List<ISpell> spells = new ArrayList<>();
 
   @Override
   public void removeSpells(ISpell[] removedSpells) {
@@ -32,10 +32,6 @@ public class DummySpellConfiguration implements ISpellConfiguration {
 
   @Override
   public void addChangeListener(IChangeListener listener) {
-    throw new NotYetImplementedException();
-  }
-
-  public ISpell[] getAllSpells() {
     throw new NotYetImplementedException();
   }
 

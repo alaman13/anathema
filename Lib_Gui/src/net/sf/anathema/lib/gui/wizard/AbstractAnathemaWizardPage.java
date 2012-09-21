@@ -17,7 +17,7 @@ public abstract class AbstractAnathemaWizardPage implements IAnathemaWizardPage 
   private IBasicMessage message = new BasicMessage("!!! UNSET-MESSAGE !!!");
   private final Announcer<RequestFinishListener> requestFinishListeners = Announcer.to(RequestFinishListener.class);
   private IAnathemaWizardPage previousPage = null;
-  protected final Map<ICondition, IAnathemaWizardPage> followUpPagesByCondition = new HashMap<ICondition, IAnathemaWizardPage>();
+  protected final Map<ICondition, IAnathemaWizardPage> followUpPagesByCondition = new HashMap<>();
 
   @Override
   public boolean canFlipToNextPage() {

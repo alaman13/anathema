@@ -10,7 +10,7 @@ import net.sf.anathema.character.generic.magic.charms.ICharmLearnArbitrator;
 public class CompositeLearnWorker implements ICharmLearnWorker {
 
   private final ICharmLearnArbitrator learnArbitrator;
-  private final Set<Charm> forgottenCharm = new HashSet<Charm>();
+  private final Set<Charm> forgottenCharm = new HashSet<>();
 
   public CompositeLearnWorker(ICharmLearnArbitrator learnArbitrator) {
     this.learnArbitrator = learnArbitrator;

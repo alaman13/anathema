@@ -21,7 +21,7 @@ public class EasyLoader extends URLClassLoader {
   }
 
   private static URL[] allJarFilesInDirectory(File folder) {
-    Collection<URL> urls = new ArrayList<URL>();
+    Collection<URL> urls = new ArrayList<>();
     for (File file : folder.listFiles()) {
       urls.add(fileToUrl(file));
     }

@@ -31,7 +31,7 @@ public class PropertiesMatcher {
       return;
     }
     File superFolder = chooser.getSelectedFile();
-    List<File> defaultPropertiesFiles = new ArrayList<File>();
+    List<File> defaultPropertiesFiles = new ArrayList<>();
     for (File file : superFolder.listFiles()) {
       if (file.isDirectory()) {
         File resourceFolder = new File(file, "/resources/language");

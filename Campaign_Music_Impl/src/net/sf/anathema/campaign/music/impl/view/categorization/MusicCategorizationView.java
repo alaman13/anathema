@@ -17,9 +17,9 @@ import javax.swing.border.TitledBorder;
 
 public class MusicCategorizationView implements IMusicCategorizationView {
 
-  private final SelectionContainerListView<IMusicEvent> eventsView = new SelectionContainerListView<IMusicEvent>(IMusicEvent.class);
-  private final SelectionContainerListView<IMusicTheme> themesView = new SelectionContainerListView<IMusicTheme>(IMusicTheme.class);
-  private final SelectionContainerListView<IMusicMood> moodsView = new SelectionContainerListView<IMusicMood>(IMusicMood.class);
+  private final SelectionContainerListView<IMusicEvent> eventsView = new SelectionContainerListView<>();
+  private final SelectionContainerListView<IMusicTheme> themesView = new SelectionContainerListView<>();
+  private final SelectionContainerListView<IMusicMood> moodsView = new SelectionContainerListView<>();
   private JPanel content;
 
   public JComponent getContent(IMusicCategorizationProperties properties) {

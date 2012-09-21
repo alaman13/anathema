@@ -37,7 +37,7 @@ public class OxBodyTechniqueCharm implements IOxBodyTechniqueCharm {
 
   @Override
   public Map<String, HealthLevelType[]> getHealthLevels() {
-    return new LinkedHashMap<String, HealthLevelType[]>(healthLevels);
+    return new LinkedHashMap<>(healthLevels);
   }
 
   @Override

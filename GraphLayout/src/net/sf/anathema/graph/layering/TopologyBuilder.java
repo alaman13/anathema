@@ -9,7 +9,7 @@ import net.sf.anathema.graph.nodes.ISimpleNode;
 public class TopologyBuilder {
 
   public static IRegularNode[] sortGraphByTopology(IRegularNode[] acyclicGraph) {
-    List<ISimpleNode> topologicalSort = new ArrayList<ISimpleNode>();
+    List<ISimpleNode> topologicalSort = new ArrayList<>();
     for (IRegularNode node : acyclicGraph) {
       if (node.isRootNode()) {
         sortIntoSetRecursively(node, topologicalSort);

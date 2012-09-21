@@ -39,7 +39,7 @@ public class GhostPassionsPresenter implements Presenter {
   private ILabelledAlotmentView temperanceView;
   private ILabelledAlotmentView valorView;
   
-  private final IdentityMapping<ISubTrait, IPassionView> viewsByPassion = new IdentityMapping<ISubTrait, IPassionView>();
+  private final IdentityMapping<ISubTrait, IPassionView> viewsByPassion = new IdentityMapping<>();
   private final TraitInternationalizer i18ner;
   private final Comparator<ITraitReference> comparator = new Comparator<ITraitReference>() {
     @Override

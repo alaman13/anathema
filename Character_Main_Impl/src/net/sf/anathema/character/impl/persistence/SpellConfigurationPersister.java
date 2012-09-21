@@ -30,8 +30,8 @@ public class SpellConfigurationPersister {
     if (spellsElement == null) {
       return;
     }
-    List<ISpell> creationSpellList = new ArrayList<ISpell>();
-    List<ISpell> experienceSpellList = new ArrayList<ISpell>();
+    List<ISpell> creationSpellList = new ArrayList<>();
+    List<ISpell> experienceSpellList = new ArrayList<>();
     for (Object spellObjectElement : spellsElement.elements(TAG_SPELL)) {
       Element spellElement = (Element) spellObjectElement;
       boolean experienceLearned = ElementUtilities.getBooleanAttribute(spellElement, ATTRIB_EXPERIENCE_LEARNED, false);

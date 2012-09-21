@@ -4,6 +4,7 @@ import net.sf.anathema.character.generic.character.IGenericCharacter;
 import net.sf.anathema.character.generic.framework.magic.MagicDisplayLabeler;
 import net.sf.anathema.character.generic.magic.ICharm;
 import net.sf.anathema.character.generic.magic.IMagicStats;
+import net.sf.anathema.character.generic.util.IStats;
 import net.sf.anathema.lib.resources.IResources;
 import net.sf.anathema.lib.util.Identificate;
 import net.sf.anathema.lib.util.Identified;
@@ -44,7 +45,7 @@ public class GenericCharmStats extends CharmStats {
   @Override
   public boolean equals(Object obj)
   {
-	  return obj instanceof GenericCharmStats && this.getName().getId().equals(((GenericCharmStats)obj).getName().getId());
+	  return obj instanceof GenericCharmStats && this.getName().getId().equals(((IStats) obj).getName().getId());
   }
 
   @Override

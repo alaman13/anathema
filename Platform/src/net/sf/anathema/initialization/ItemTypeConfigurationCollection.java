@@ -8,7 +8,7 @@ import net.sf.anathema.framework.module.IItemTypeConfiguration;
 
 public class ItemTypeConfigurationCollection  {
 
-  private final Collection<AbstractItemTypeConfiguration> itemTypeConfigurations = new ArrayList<AbstractItemTypeConfiguration>();
+  private final Collection<AbstractItemTypeConfiguration> itemTypeConfigurations = new ArrayList<>();
 
   public ItemTypeConfigurationCollection(Instantiater instantiater)
       throws InitializationException {

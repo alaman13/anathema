@@ -20,13 +20,13 @@ import net.sf.anathema.lib.resources.IResources;
 public class CardReportFactory implements IReportFactory {
 	  @Override
       public Report[] createReport(IResources resources, IAnathemaModel model) {
-		    List <ICardDataProvider> dataProviders = new ArrayList<ICardDataProvider>();
+		    List <ICardDataProvider> dataProviders = new ArrayList<>();
 		  	dataProviders.add(new CharmCardDataProvider(model, resources));
 		  	dataProviders.add(new SpellCardDataProvider(model, resources));
 	  		dataProviders.add(new EquipmentCardDataProvider(resources));
 		  	dataProviders.add(new LegendCardDataProvider(resources));
 		    ICardLayout layout = new DemocritusCardLayout(resources, .23f);
 		    return new Report[]{
-		    		new CardReport(resources, layout, dataProviders.toArray(new ICardDataProvider[0]))};
+		    		new CardReport(resources, layout, dataProviders.toArray(new ICardDataProvider[dataProviders.size()]))};
 		  }
 }

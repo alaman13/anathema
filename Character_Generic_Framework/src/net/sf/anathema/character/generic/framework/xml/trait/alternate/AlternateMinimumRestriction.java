@@ -12,7 +12,7 @@ public class AlternateMinimumRestriction extends ReflectionEqualsObject implemen
 
   private final int minimumTraitCount;
   private final int strictMinimumValue;
-  private final List<ITraitType> alternateTraitTypes = new ArrayList<ITraitType>();
+  private final List<ITraitType> alternateTraitTypes = new ArrayList<>();
   private boolean isFreebie;
 
   public AlternateMinimumRestriction(int minimumTraitCount, int strictMinimumValue) {

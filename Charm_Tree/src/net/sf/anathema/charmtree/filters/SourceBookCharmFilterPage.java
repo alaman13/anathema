@@ -29,13 +29,13 @@ public class SourceBookCharmFilterPage implements ICharmFilterPage {
   private boolean[] includePrereqs;
   private IResources resources;
 
-  private Map<String, IExaltedSourceBook> namesToBooksMap = new HashMap<String, IExaltedSourceBook>();
+  private Map<String, IExaltedSourceBook> namesToBooksMap = new HashMap<>();
 
   private JList<String> allowedList;
   private JList<String> excludedList;
 
   public SourceBookCharmFilterPage(IResources resources, List<IExaltedSourceBook> allowed,
-                                   ArrayList<IExaltedSourceBook> excluded, boolean[] includePrereqs) {
+                                   List<IExaltedSourceBook> excluded, boolean[] includePrereqs) {
     this.allowedBooks = allowed;
     this.excludedBooks = excluded;
     this.includePrereqs = includePrereqs;
@@ -49,7 +49,7 @@ public class SourceBookCharmFilterPage implements ICharmFilterPage {
 
     JPanel allowedPanel = new JPanel(new GridDialogLayout(1, false));
     allowedPanel.add(new JLabel(resources.getString("CharmFilters.SourceBook.Included")));
-    allowedList = new JList(convertBooksToNames(allowedBooks));
+    allowedList = new JList<>(convertBooksToNames(allowedBooks));
     allowedList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
     allowedPanel.setSize(300, 100);
     allowedPanel.add(new JScrollPane(allowedList));
@@ -83,7 +83,7 @@ public class SourceBookCharmFilterPage implements ICharmFilterPage {
 
     JPanel deniedPanel = new JPanel(new GridDialogLayout(1, false));
     deniedPanel.add(new JLabel(resources.getString("CharmFilters.SourceBook.Excluded")));
-    excludedList = new JList(convertBooksToNames(excludedBooks));
+    excludedList = new JList<>(convertBooksToNames(excludedBooks));
     excludedList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
     deniedPanel.setSize(300, 100);
     deniedPanel.add(new JScrollPane(excludedList));
@@ -125,7 +125,7 @@ public class SourceBookCharmFilterPage implements ICharmFilterPage {
   }
 
   private String[] convertBooksToNames(List<IExaltedSourceBook> bookList) {
-    List<String> bookNames = new ArrayList<String>();
+    List<String> bookNames = new ArrayList<>();
     for (IExaltedSourceBook book : bookList) {
       String name = resources.getString("ExaltedSourceBook." + book.getId());
       bookNames.add(name);

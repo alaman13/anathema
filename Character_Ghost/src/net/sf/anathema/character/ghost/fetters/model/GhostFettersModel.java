@@ -40,7 +40,7 @@ public class GhostFettersModel extends AbstractAdditionalModelAdapter implements
   public GhostFettersModel(GhostFettersTemplate template, ICharacterModelContext context) {
     this.context = context;
     this.template = template;
-    fetters = new ArrayList<Fetter>();
+    fetters = new ArrayList<>();
 
     maxFreeRating = 3;
   }

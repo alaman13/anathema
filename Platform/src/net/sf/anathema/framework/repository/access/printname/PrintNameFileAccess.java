@@ -41,7 +41,7 @@ public class PrintNameFileAccess implements IPrintNameFileAccess {
   public PrintNameFile[] collectAllPrintNameFiles(IItemType type) {
     File repositoryFolder = resolver.getItemTypeFolder(type);
     File[] subfiles = repositoryFolder.listFiles();
-    List<PrintNameFile> printNameFiles = new ArrayList<PrintNameFile>();
+    List<PrintNameFile> printNameFiles = new ArrayList<>();
     if (subfiles == null) {
       return new PrintNameFile[0];
     }
@@ -128,7 +128,7 @@ public class PrintNameFileAccess implements IPrintNameFileAccess {
 
   @Override
   public PrintNameFile[] collectClosedPrintNameFiles(IItemType type) {
-    List<PrintNameFile> closedFiles = new ArrayList<PrintNameFile>();
+    List<PrintNameFile> closedFiles = new ArrayList<>();
     for (PrintNameFile file : collectAllPrintNameFiles(type)) {
       if (!itemManagement.isOpen(file.getRepositoryId(), type)) {
         closedFiles.add(file);

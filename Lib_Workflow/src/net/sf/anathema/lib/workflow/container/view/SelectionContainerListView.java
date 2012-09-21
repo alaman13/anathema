@@ -17,8 +17,8 @@ public class SelectionContainerListView<V> implements ISelectionContainerView<V>
   private final SmartJList<V> smartList;
   private final Announcer<IChangeListener> changeControl = Announcer.to(IChangeListener.class);
 
-  public SelectionContainerListView(Class<V> contentClass) {
-    smartList = new SmartJList<V>();
+  public SelectionContainerListView() {
+    smartList = new SmartJList<>();
     smartList.addListSelectionListener(new ListSelectionListener() {
       @Override
       public void valueChanged(ListSelectionEvent e) {
@@ -53,9 +53,5 @@ public class SelectionContainerListView<V> implements ISelectionContainerView<V>
   @Override
   public List<V> getSelectedValues() {
     return smartList.getSelectedValuesList();
-  }
-
-  public void setRenderer(ListCellRenderer renderer) {
-    smartList.setCellRenderer(renderer);
   }
 }

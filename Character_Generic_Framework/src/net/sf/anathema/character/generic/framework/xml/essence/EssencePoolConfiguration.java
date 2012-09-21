@@ -13,7 +13,7 @@ public class EssencePoolConfiguration implements IEssencePoolConfiguration {
 
   private final int essenceMultiplier;
   private final int willpowerMultiplier;
-  private final List<IVirtuePoolPart> virtuePoolParts = new ArrayList<IVirtuePoolPart>();
+  private final List<IVirtuePoolPart> virtuePoolParts = new ArrayList<>();
 
   public EssencePoolConfiguration(int essenceMultiplier, int willpowerMultiplier) {
     this.essenceMultiplier = essenceMultiplier;
@@ -32,7 +32,7 @@ public class EssencePoolConfiguration implements IEssencePoolConfiguration {
 
   @Override
   public FactorizedTrait[] createVirtueFactorizedTrait(IGenericTrait[] virtues) {
-    List<FactorizedTrait> traits = new ArrayList<FactorizedTrait>();
+    List<FactorizedTrait> traits = new ArrayList<>();
     for (IVirtuePoolPart part : virtuePoolParts) {
       Collections.addAll(traits, part.createFactorizedTrait(virtues));
     }

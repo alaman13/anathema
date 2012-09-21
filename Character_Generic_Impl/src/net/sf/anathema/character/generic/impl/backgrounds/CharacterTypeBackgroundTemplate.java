@@ -10,7 +10,7 @@ import net.sf.anathema.character.generic.type.ICharacterType;
 
 public class CharacterTypeBackgroundTemplate extends AbstractBackgroundTemplate {
 
-  private final List<ICharacterType> types = new ArrayList<ICharacterType>();
+  private final List<ICharacterType> types = new ArrayList<>();
   private final LowerableState state;
 
   public CharacterTypeBackgroundTemplate(String id, ICharacterType type, LowerableState state) {

@@ -13,7 +13,7 @@ import net.sf.anathema.lib.lang.clone.ReflectionCloneableObject;
 public class GenericRestrictedTraitTemplate extends ReflectionCloneableObject<IClonableTraitTemplate> implements
     IClonableTraitTemplate {
 
-  private final List<IMinimumRestriction> restrictions = new ArrayList<IMinimumRestriction>();
+  private final List<IMinimumRestriction> restrictions = new ArrayList<>();
   private final ITraitType traitType;
   private IClonableTraitTemplate traitTemplate;
 

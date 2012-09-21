@@ -13,7 +13,7 @@ public class CharacterTemplateExtensionResourceCompiler implements IExtensibleDa
 	
 	private static final String TEMPLATE_FILE_RECOGNITION_PATTERN = "(.+?)\\.template";
 	  
-	private final List<ResourceFile> templateResources = new ArrayList<ResourceFile>();
+	private final List<ResourceFile> templateResources = new ArrayList<>();
 
 	@Override
 	public String getName() {

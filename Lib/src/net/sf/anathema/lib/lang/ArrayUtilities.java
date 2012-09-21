@@ -69,7 +69,7 @@ public class ArrayUtilities {
     if (originalIndices.length <= 1) {
       return;
     }
-    Map<Integer, T> nodesByOriginalIndex = new HashMap<Integer, T>();
+    Map<Integer, T> nodesByOriginalIndex = new HashMap<>();
     for (int element : originalIndices) {
       nodesByOriginalIndex.put(element, objects[element]);
     }

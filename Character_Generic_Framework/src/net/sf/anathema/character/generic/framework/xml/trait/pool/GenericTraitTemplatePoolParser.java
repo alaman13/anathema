@@ -30,7 +30,7 @@ public class GenericTraitTemplatePoolParser extends AbstractXmlTemplateParser<Ge
   private static final String TAG_ALTERNATE_MINMUM_TRAITS = "alternateMinimumTraits"; //$NON-NLS-1$
   private static final String TAG_CASTE_MINIMUM_TRAITS = "casteMinimumTraits";
   private final ITraitTypeGroup traitTypeGroup;
-  private final List<AllocationMinimumRestriction> family = new ArrayList<AllocationMinimumRestriction>();
+  private final List<AllocationMinimumRestriction> family = new ArrayList<>();
 
   public GenericTraitTemplatePoolParser(
       IXmlTemplateRegistry<GenericTraitTemplatePool> templateRegistry,

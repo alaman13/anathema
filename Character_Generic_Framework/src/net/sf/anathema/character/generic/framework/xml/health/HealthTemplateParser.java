@@ -37,7 +37,7 @@ public class HealthTemplateParser extends AbstractXmlTemplateParser<GenericHealt
   }
 
   private void setToughnessControllingTrait(Element generalElement, GenericHealthTemplate basicTemplate) {
-	List<ITraitType> traits = new ArrayList<ITraitType>();
+	List<ITraitType> traits = new ArrayList<>();
 	for (Object element : generalElement.elements(TAG_TOUGHNESS_TRAIT))
 	{
 		Element toughnessElement = (Element)element;
@@ -51,7 +51,7 @@ public class HealthTemplateParser extends AbstractXmlTemplateParser<GenericHealt
   
   private void setBaseProviders(Element generalElement, GenericHealthTemplate template)
   {
-	  List<String> baseHealthProviders = new ArrayList<String>();
+	  List<String> baseHealthProviders = new ArrayList<>();
 	  
 	  try
 	  {

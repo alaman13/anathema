@@ -23,10 +23,10 @@ public class SiderealFlawedFateModel extends VirtueFlawModel
 
   @Override
   public ITraitType[] getFlawVirtueTypes() {
-    List<ITraitType> flawVirtues = new ArrayList<ITraitType>();
+    List<ITraitType> flawVirtues = new ArrayList<>();
     for (VirtueType virtueType : VirtueType.values()) {
       flawVirtues.add(virtueType);
     }
-    return flawVirtues.toArray(new ITraitType[0]);
+    return flawVirtues.toArray(new ITraitType[flawVirtues.size()]);
   }
 }

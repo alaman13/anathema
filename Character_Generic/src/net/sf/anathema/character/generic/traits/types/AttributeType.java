@@ -14,7 +14,7 @@ public enum AttributeType implements ITraitType {
   Perception(AttributeGroupType.Mental), Intelligence(AttributeGroupType.Mental), Wits(AttributeGroupType.Mental);
 
   public static AttributeType[] getAllFor(AttributeGroupType groupType) {
-    List<AttributeType> foundTypes = new ArrayList<AttributeType>();
+    List<AttributeType> foundTypes = new ArrayList<>();
     AttributeType[] allTypes = values();
     for (AttributeType type : allTypes) {
       if (type.getGroupType() == groupType) {

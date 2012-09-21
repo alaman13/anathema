@@ -21,7 +21,7 @@ public class ListObjectSelectionView<V> implements IListObjectSelectionView<V> {
   }
 
   private ListObjectSelectionView(ListSelectionMode mode) {
-    this.smartList = new SmartJList<V>();
+    this.smartList = new SmartJList<>();
     this.selectionModel = new VetoableListSelectionModel(mode);
     this.smartList.setSelectionModel(selectionModel);
   }

@@ -1,6 +1,7 @@
 package net.sf.anathema.character.generic.framework.xml.abilitygroup;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import net.sf.anathema.character.generic.framework.xml.core.AbstractXmlTemplateParser;
@@ -41,11 +42,11 @@ public class TraitTypeGroupTemplateParser extends AbstractXmlTemplateParser<Gene
       String groupCasteId = group.attributeValue(CASTE_ID);
       List<Element> abilities = ElementUtilities.elements(group, TAG_TRAIT);
       for (Element ability : abilities) {
-    	List<String> traitCastes = new ArrayList<String>();
+    	List<String> traitCastes = new ArrayList<>();
         String attributeTypeValue = ability.attributeValue(ATTRIB_TYPE);
-        if (ability.attributeValue(CASTE_ID) != null)
-        	for (String caste : ability.attributeValue(CASTE_ID).split(","))
-        		traitCastes.add(caste);
+        if (ability.attributeValue(CASTE_ID) != null) {
+          Collections.addAll(traitCastes, ability.attributeValue(CASTE_ID).split(","));
+        }
         abilityGroupProvider.addGroupedAbilityType(attributeTypeValue, groupId, groupCasteId, traitCastes);
       }
     }

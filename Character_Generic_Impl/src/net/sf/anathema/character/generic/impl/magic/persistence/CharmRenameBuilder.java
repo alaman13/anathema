@@ -26,7 +26,7 @@ public class CharmRenameBuilder
     if (renameElement == null) {
       return null;
     }
-    Map<String, String> renames = new HashMap<String, String>();
+    Map<String, String> renames = new HashMap<>();
     for (Element renamedElement : ElementUtilities.elements(renameElement, TAG_RENAME)) {
       String from = renamedElement.attributeValue(ATTRIB_FROM);
       String to = renamedElement.attributeValue(ATTRIB_TO);

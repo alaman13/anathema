@@ -124,7 +124,7 @@ public class LookAndFeelPreferencesElement implements IPreferencesElement {
       customLaf.getDocument().addDocumentListener(new CustomLookAndFeelListener(resources));
     }
 
-    List<LookAndFeelItem> items = new LinkedList<LookAndFeelItem>();
+    List<LookAndFeelItem> items = new LinkedList<>();
     if (allowCustom) {
       items.add(new LookAndFeelItem(resources));
     }

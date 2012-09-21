@@ -22,7 +22,7 @@ import org.dom4j.Element;
 
 public class SpecialCharmPersister implements ISpecialCharmPersister {
 
-  private final Map<ICharm, ISpecialCharmPersister> persisterByCharm = new HashMap<ICharm, ISpecialCharmPersister>();
+  private final Map<ICharm, ISpecialCharmPersister> persisterByCharm = new HashMap<>();
 
   public SpecialCharmPersister(ISpecialCharm[] charms, final ICharmIdMap charmTree) {
     for (ISpecialCharm specialCharm : charms) {

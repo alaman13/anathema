@@ -15,7 +15,7 @@ public class TreeUtilities {
   }
 
   public static DefaultMutableTreeNode[] getSelectedHierachyNodes(JTree tree) {
-    List<DefaultMutableTreeNode> list = new ArrayList<DefaultMutableTreeNode>();
+    List<DefaultMutableTreeNode> list = new ArrayList<>();
     TreePath[] selectionPaths = tree.getSelectionPaths();
     if (selectionPaths == null) {
       return new DefaultMutableTreeNode[0];

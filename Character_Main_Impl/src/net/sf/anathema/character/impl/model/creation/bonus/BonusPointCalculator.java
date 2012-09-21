@@ -10,7 +10,7 @@ import net.sf.anathema.character.presenter.overview.IValueModel;
 
 public class BonusPointCalculator {
 
-  private final List<IAdditionalModelBonusPointCalculator> allAdditionalCalculators = new ArrayList<IAdditionalModelBonusPointCalculator>();
+  private final List<IAdditionalModelBonusPointCalculator> allAdditionalCalculators = new ArrayList<>();
 
   public void addAdditionalBonusPointCalculator(IAdditionalModelBonusPointCalculator additionalCalculator) {
     allAdditionalCalculators.add(additionalCalculator);

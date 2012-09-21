@@ -16,12 +16,12 @@ public class CostSelectionView {
 	  
 	public CostSelectionView(String labelText, String[] backgrounds, IntegerViewFactory factory) {
 	  this.label = new JLabel(labelText);
-	  this.selection = new SelectableIntValueView<String>(factory, 0, 6);
+	  this.selection = new SelectableIntValueView<>(factory, 0, 6);
 	  
 	  selection.setSelectableValues(backgrounds);
 	}
 
-	public void addTo(JPanel panel, IGridDialogLayoutData data) {
+	public void addTo(JPanel panel) {
 	  panel.add(label);
 	  selection.addTo(panel);
 	}
