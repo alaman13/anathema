@@ -5,7 +5,7 @@ import net.sf.anathema.lib.gui.Presenter;
 import net.sf.anathema.lib.lang.ArrayFactory;
 import net.sf.anathema.lib.lang.IArrayFactory;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class SelectionContainerPresenter<V> implements Presenter {
 
@@ -27,8 +27,9 @@ public class SelectionContainerPresenter<V> implements Presenter {
     view.addSelectionChangeListener(new IChangeListener() {
       @Override
       public void changeOccurred() {
-        V[] selectedValues = view.getSelectedValues();
-        V[] valueArray = Arrays.copyOf(selectedValues, selectedValues.length);
+        List<V> selectedValues = view.getSelectedValues();
+        V[] valueArray = arrayFactory.createArray(selectedValues.size());
+        selectedValues.toArray(valueArray);
         model.setSelectedValues(valueArray);
       }
     });

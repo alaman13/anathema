@@ -6,20 +6,18 @@ import javax.swing.JList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SmartJList<T> extends JList {
+public class SmartJList<T> extends JList<T> {
 
-  private Class<? extends T> clazz;
-
-  public SmartJList(Class<? extends T> contentClass) {
-    this.clazz = contentClass;
-    setModel(new DefaultListModel());
+  public SmartJList() {
+    setModel(new DefaultListModel<T>());
     setSelectionModel(new DefaultListSelectionModel());
   }
 
+  @SuppressWarnings("unchecked")
   public void setObjects(T[] objects) {
-    DefaultListModel listModel = (DefaultListModel) getModel();
+    DefaultListModel<T> listModel = (DefaultListModel) getModel();
     listModel.clear();
-    for (Object object : objects) {
+    for (T object : objects) {
       listModel.addElement(object);
     }
   }

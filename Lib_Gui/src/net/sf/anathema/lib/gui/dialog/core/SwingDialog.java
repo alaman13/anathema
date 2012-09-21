@@ -79,7 +79,7 @@ public class SwingDialog implements ISwingFrameOrDialog {
 
   @Override
   public void show() {
-    dialog.show();
+    setVisible(true);
   }
 
   @Override

@@ -82,14 +82,13 @@ public class SpellViewProperties extends AbstractMagicLearnProperties implements
   }
 
   @Override
-  public ListSelectionListener getRemoveButtonEnabledListener(final JButton button, final JList list) {
+  public ListSelectionListener getRemoveButtonEnabledListener(final JButton button, final JList<ISpell> list) {
     return new ListSelectionListener() {
       @Override
       public void valueChanged(ListSelectionEvent e) {
         boolean enabled = !list.isSelectionEmpty();
         if (enabled && character.isExperienced()) {
-          for (Object spellObject : list.getSelectedValues()) {
-            ISpell spell = (ISpell) spellObject;
+          for (ISpell spell : list.getSelectedValuesList()) {
             if (spellConfiguration.isLearnedOnCreation(spell)) {
               enabled = false;
               break;

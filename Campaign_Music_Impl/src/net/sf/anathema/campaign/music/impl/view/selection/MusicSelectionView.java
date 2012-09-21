@@ -48,7 +48,7 @@ public class MusicSelectionView implements IMusicSelectionView, IView {
   public void initGui(ITableColumnViewSettings columnSettings, boolean includePlayerView,
                       IMusicCategorizationProperties categoryProperties, IMusicPlayerProperties playerProperties,
                       IMusicSelectionProperties selectionProperties, ITrackDetailsProperties detailsProperties) {
-    selectionsView = new EditableActionAddableListView<IMusicSelection>(null, columnSettings, IMusicSelection.class);
+    selectionsView = new EditableActionAddableListView<IMusicSelection>(null, columnSettings);
     content = createContent(includePlayerView, selectionProperties, categoryProperties, playerProperties,
             detailsProperties);
   }
@@ -74,7 +74,7 @@ public class MusicSelectionView implements IMusicSelectionView, IView {
     panel.add(selectionActionsView.getComponent(),
             GridDialogLayoutDataFactory.createHorizontalSpanData(2, GridDialogLayoutData.FILL_BOTH));
     TabbedView tracksView = new TabbedView(TabDirection.Down);
-    trackListView = new ActionAddableListView<IMp3Track>(null, IMp3Track.class); //$NON-NLS-1$
+    trackListView = new ActionAddableListView<IMp3Track>(null); //$NON-NLS-1$
     tracksView.addView(factory.createTabView(trackListView.getComponent()),
             new ContentProperties(selectionProperties.getCurrentSelectionString()));
     panel.add(tracksView.getComponent(), GridDialogLayoutData.FILL_BOTH);

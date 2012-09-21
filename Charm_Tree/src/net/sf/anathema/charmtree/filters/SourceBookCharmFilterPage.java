@@ -31,8 +31,8 @@ public class SourceBookCharmFilterPage implements ICharmFilterPage {
 
   private Map<String, IExaltedSourceBook> namesToBooksMap = new HashMap<String, IExaltedSourceBook>();
 
-  private JList allowedList;
-  private JList excludedList;
+  private JList<String> allowedList;
+  private JList<String> excludedList;
 
   public SourceBookCharmFilterPage(IResources resources, List<IExaltedSourceBook> allowed,
                                    ArrayList<IExaltedSourceBook> excluded, boolean[] includePrereqs) {
@@ -67,7 +67,7 @@ public class SourceBookCharmFilterPage implements ICharmFilterPage {
 
       @Override
       protected void execute(Component parentComponent) {
-        removeBooks(allowedList.getSelectedValues());
+        removeBooks(allowedList.getSelectedValuesList());
       }
     });
     removeSourceButton.setText(">>");
@@ -76,7 +76,7 @@ public class SourceBookCharmFilterPage implements ICharmFilterPage {
 
       @Override
       protected void execute(Component parentComponent) {
-        addBooks(excludedList.getSelectedValues());
+        addBooks(excludedList.getSelectedValuesList());
       }
     });
     addSourceButton.setText("<<");
@@ -124,7 +124,7 @@ public class SourceBookCharmFilterPage implements ICharmFilterPage {
     return panel;
   }
 
-  private Object[] convertBooksToNames(List<IExaltedSourceBook> bookList) {
+  private String[] convertBooksToNames(List<IExaltedSourceBook> bookList) {
     List<String> bookNames = new ArrayList<String>();
     for (IExaltedSourceBook book : bookList) {
       String name = resources.getString("ExaltedSourceBook." + book.getId());
@@ -134,12 +134,11 @@ public class SourceBookCharmFilterPage implements ICharmFilterPage {
       }
     }
     Collections.sort(bookNames);
-    return bookNames.toArray();
+    return bookNames.toArray(new String[bookNames.size()]);
   }
 
-  private void removeBooks(Object[] books) {
-    for (Object bookName : books) {
-      String name = (String) bookName;
+  private void removeBooks(List<String> books) {
+    for (String name : books) {
       IExaltedSourceBook book = namesToBooksMap.get(name);
       allowedBooks.remove(book);
       excludedBooks.add(book);
@@ -148,9 +147,8 @@ public class SourceBookCharmFilterPage implements ICharmFilterPage {
     excludedList.setListData(convertBooksToNames(excludedBooks));
   }
 
-  private void addBooks(Object[] books) {
-    for (Object bookName : books) {
-      String name = (String) bookName;
+  private void addBooks(List<String> books) {
+    for (String name : books) {
       IExaltedSourceBook book = namesToBooksMap.get(name);
       allowedBooks.add(book);
       excludedBooks.remove(book);

@@ -6,6 +6,7 @@ import net.sf.anathema.lib.gui.list.actionview.IActionAddableListView;
 import javax.swing.Icon;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import java.util.List;
 
 public abstract class AbstractListViewSelectionEnabledAction<V> extends SmartAction {
 
@@ -25,14 +26,14 @@ public abstract class AbstractListViewSelectionEnabledAction<V> extends SmartAct
   }
 
   protected final boolean isSelectionEmpty() {
-    return view.getSelectedItems().length > 0;
+    return getSelectedItems().isEmpty();
   }
 
   private void updateEnabled() {
     setEnabled(isSelectionEmpty());
   }
 
-  protected final V[] getSelectedItems() {
+  protected final List<V> getSelectedItems() {
     return view.getSelectedItems();
   }
 }

@@ -1,6 +1,7 @@
 package net.sf.anathema.character.view.magic;
 
 import net.sf.anathema.character.generic.framework.magic.view.IMagicLearnProperties;
+import net.sf.anathema.character.generic.magic.ISpell;
 
 import javax.swing.JButton;
 import javax.swing.JList;
@@ -13,5 +14,5 @@ public interface ISpellViewProperties extends IMagicLearnProperties {
 
   ListCellRenderer getCircleSelectionRenderer();
 
-  ListSelectionListener getRemoveButtonEnabledListener(JButton button, JList list);
+  ListSelectionListener getRemoveButtonEnabledListener(JButton button, JList<ISpell> list);
 }

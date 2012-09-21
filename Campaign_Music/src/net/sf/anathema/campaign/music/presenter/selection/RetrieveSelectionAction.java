@@ -28,15 +28,15 @@ public class RetrieveSelectionAction extends SmartAction {
     selectionListView.addListSelectionListener(new ListSelectionListener() {
       @Override
       public void valueChanged(ListSelectionEvent e) {
-        setEnabled(selectionListView.getSelectedItems().length != 0);
+        setEnabled(!selectionListView.getSelectedItems().isEmpty());
       }
     });
-    setEnabled(selectionListView.getSelectedItems().length != 0);
+    setEnabled(!selectionListView.getSelectedItems().isEmpty());
   }
 
   @Override
   protected void execute(Component parentComponent) {
-    IMusicSelection selectedSelection = selectionListView.getSelectedItems()[0];
+    IMusicSelection selectedSelection = selectionListView.getSelectedItems().get(0);
     selectionModel.addToCurrentSelection(selectedSelection.getContent());
   }
 }

@@ -10,6 +10,7 @@ import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import java.util.List;
 
 public class SelectionContainerListView<V> implements ISelectionContainerView<V>, IView {
 
@@ -17,7 +18,7 @@ public class SelectionContainerListView<V> implements ISelectionContainerView<V>
   private final Announcer<IChangeListener> changeControl = Announcer.to(IChangeListener.class);
 
   public SelectionContainerListView(Class<V> contentClass) {
-    smartList = new SmartJList<V>(contentClass);
+    smartList = new SmartJList<V>();
     smartList.addListSelectionListener(new ListSelectionListener() {
       @Override
       public void valueChanged(ListSelectionEvent e) {
@@ -50,8 +51,8 @@ public class SelectionContainerListView<V> implements ISelectionContainerView<V>
   }
 
   @Override
-  public V[] getSelectedValues() {
-    return smartList.getSelectedValues();
+  public List<V> getSelectedValues() {
+    return smartList.getSelectedValuesList();
   }
 
   public void setRenderer(ListCellRenderer renderer) {

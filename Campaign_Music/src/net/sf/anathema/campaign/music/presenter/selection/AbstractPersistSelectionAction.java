@@ -9,6 +9,7 @@ import net.sf.anathema.lib.gui.list.actionview.IActionAddableListView;
 import javax.swing.Icon;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import java.util.List;
 
 public abstract class AbstractPersistSelectionAction extends SmartAction {
 
@@ -16,10 +17,10 @@ public abstract class AbstractPersistSelectionAction extends SmartAction {
   private IActionAddableListView<IMusicSelection> selectionListView;
 
   public AbstractPersistSelectionAction(
-      Icon icon,
-      String tooltip,
-      IActionAddableListView<IMusicSelection> selectionListView,
-      IMusicSelectionModel selectionModel) {
+          Icon icon,
+          String tooltip,
+          IActionAddableListView<IMusicSelection> selectionListView,
+          IMusicSelectionModel selectionModel) {
     super(icon);
     this.selectionListView = selectionListView;
     this.selectionModel = selectionModel;
@@ -49,8 +50,8 @@ public abstract class AbstractPersistSelectionAction extends SmartAction {
 
   private void updateEnabled() {
     boolean currentSelectionNonEmpty = selectionModel.getCurrentSelection().getContent().length > 0;
-    Object[] selectedSelections = selectionListView.getSelectedItems();
-    boolean selectionSelected = selectedSelections.length > 0 && selectedSelections[0] != null;
+    List<IMusicSelection> selectedSelections = selectionListView.getSelectedItems();
+    boolean selectionSelected = !selectedSelections.isEmpty() && selectedSelections.get(0) != null;
     setEnabled(currentSelectionNonEmpty && selectionSelected);
   }
 }

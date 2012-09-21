@@ -30,6 +30,7 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionListener;
+import java.util.List;
 
 public class LibraryControlView implements ILibraryControlView, IView {
 
@@ -46,8 +47,8 @@ public class LibraryControlView implements ILibraryControlView, IView {
 
   public LibraryControlView(ITableColumnViewSettings settings, ILibraryControlProperties properties) {
     this.viewProperties = properties;
-    libraryListView = new EditableActionAddableListView<ILibrary>(null, settings, ILibrary.class);
-    mp3ListView = new ActionAddableListView<IMp3Track>(viewProperties.getNoContentString(), IMp3Track.class);
+    libraryListView = new EditableActionAddableListView<ILibrary>(null, settings);
+    mp3ListView = new ActionAddableListView<IMp3Track>(viewProperties.getNoContentString());
   }
 
   @Override
@@ -79,11 +80,11 @@ public class LibraryControlView implements ILibraryControlView, IView {
 
   @Override
   public Object getSelectedLibrary() {
-    Object[] selectedItems = libraryListView.getSelectedItems();
-    if (selectedItems.length == 0) {
+    List<ILibrary> selectedItems = libraryListView.getSelectedItems();
+    if (selectedItems.isEmpty()) {
       return null;
     }
-    return selectedItems[0];
+    return selectedItems.get(0);
   }
 
   @Override

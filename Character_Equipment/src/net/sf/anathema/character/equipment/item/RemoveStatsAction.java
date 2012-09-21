@@ -10,6 +10,7 @@ import net.sf.anathema.lib.resources.IResources;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.Component;
+import java.util.List;
 
 public class RemoveStatsAction extends SmartAction {
 
@@ -31,12 +32,13 @@ public class RemoveStatsAction extends SmartAction {
   }
 
   private void updateEnabled() {
-    setEnabled(statsListView.getSelectedItems().length > 0);
+    setEnabled(!statsListView.getSelectedItems().isEmpty());
   }
 
   @Override
   protected void execute(Component parentComponent) {
-    IEquipmentStats[] equipmentStats = statsListView.getSelectedItems();
+    List<IEquipmentStats> selectedItems = statsListView.getSelectedItems();
+    IEquipmentStats[] equipmentStats = selectedItems.toArray(new IEquipmentStats[selectedItems.size()]);
     editModel.removeStatistics(equipmentStats);
   }
 }

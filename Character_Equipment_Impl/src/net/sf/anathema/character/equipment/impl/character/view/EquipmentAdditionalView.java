@@ -20,7 +20,7 @@ import net.sf.anathema.lib.gui.selection.ListObjectSelectionView;
 
 public class EquipmentAdditionalView implements IEquipmentAdditionalView {
 
-  private final ListObjectSelectionView<String> equipmentPickList = new ListObjectSelectionView<String>(String.class);
+  private final ListObjectSelectionView<String> equipmentPickList = new ListObjectSelectionView<String>();
   private final JPanel panel = new JPanel(new GridDialogLayout(3, false));
   private final JPanel buttonPanel = new JPanel(new GridDialogLayout(1, false));
   private final JButton selectButton = new JButton();

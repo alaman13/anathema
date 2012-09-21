@@ -24,7 +24,7 @@ public class PersistAppendSelectionAction extends AbstractPersistSelectionAction
   @Override
   protected void execute(Component parentComponent) {
     IMusicSelection currentSelection = getSelectionModel().getCurrentSelection();
-    IMusicSelection persistSelection = getSelectionListView().getSelectedItems()[0];
+    IMusicSelection persistSelection = getSelectionListView().getSelectedItems().get(0);
     persistSelection.addTracks(currentSelection.getContent());
     getSelectionModel().persistSelection(persistSelection);
   }

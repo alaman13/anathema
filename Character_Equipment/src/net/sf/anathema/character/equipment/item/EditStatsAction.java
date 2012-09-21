@@ -39,12 +39,12 @@ public class EditStatsAction extends SmartAction {
   }
 
   private void updateEnabled() {
-    setEnabled(statsListView.getSelectedItems().length == 1);
+    setEnabled(statsListView.getSelectedItems().size() == 1);
   }
 
   @Override
   protected void execute(Component parentComponent) {
-    IEquipmentStats selectedStats = statsListView.getSelectedItems()[0];
+    IEquipmentStats selectedStats = statsListView.getSelectedItems().get(0);
     List<String> definedNames = new ArrayList<String>();
     for (IEquipmentStats stats : editModel.getStats()) {
       if (stats == selectedStats) {

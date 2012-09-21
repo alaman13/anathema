@@ -1,27 +1,25 @@
 package net.sf.anathema.lib.gui.list.actionview;
 
-import java.awt.Color;
+import net.sf.anathema.lib.gui.table.SmartTable;
+import net.sf.anathema.lib.gui.table.columsettings.ITableColumnViewSettings;
 
 import javax.swing.JComponent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-
-import net.sf.anathema.lib.gui.table.SmartTable;
-import net.sf.anathema.lib.gui.table.columsettings.ITableColumnViewSettings;
-import net.sf.anathema.lib.lang.ArrayFactory;
+import java.awt.Color;
+import java.util.Collections;
+import java.util.List;
 
 public class EditableActionAddableListView<V> extends AbstractActionAddableListView<V> {
 
   private final SmartTable table;
   private final DefaultTableModel tableModel = new DefaultTableModel(10, 1);
-  private final ArrayFactory<V> factory;
 
-  public EditableActionAddableListView(String title, ITableColumnViewSettings columnSetting, Class<V> contentClass) {
+  public EditableActionAddableListView(String title, ITableColumnViewSettings columnSetting) {
     super(title);
     table = new SmartTable(tableModel, new ITableColumnViewSettings[] { columnSetting });
     table.getTable().setTableHeader(null);
     table.getTable().setGridColor(new Color(0, 0, 0, 0));
-    factory = new ArrayFactory<V>(contentClass);
   }
 
   @Override
@@ -47,14 +45,12 @@ public class EditableActionAddableListView<V> extends AbstractActionAddableListV
 
   @Override
   @SuppressWarnings("unchecked")
-  public V[] getSelectedItems() {
+  public List<V> getSelectedItems() {
     int selectedRowIndex = table.getSelectedRowIndex();
     if (selectedRowIndex < 0) {
-      return factory.createArray(0);
+      return Collections.emptyList();
     }
-    V[] array = factory.createArray(1);
-    array[0] = (V) tableModel.getValueAt(selectedRowIndex, 0);
-    return array;
+    return Collections.singletonList((V) tableModel.getValueAt(selectedRowIndex, 0));
   }
 
   @Override

@@ -61,7 +61,7 @@ public class MagicLearnView implements IMagicLearnView {
 
       @Override
       protected void execute(Component parentComponent) {
-        fireMagicAdded(learnOptionsList.getSelectedValues());
+        fireMagicAdded(learnOptionsList.getSelectedValuesList());
       }
     };
     return createButton(tooltip, smartAction);
@@ -69,11 +69,10 @@ public class MagicLearnView implements IMagicLearnView {
 
   private JButton createRemoveMagicButton(Icon icon, String tooltip) {
     SmartAction smartAction = new SmartAction(icon) {
-      private static final long serialVersionUID = 1L;
 
       @Override
       protected void execute(Component parentComponent) {
-        fireMagicRemoved(learnedList.getSelectedValues());
+        fireMagicRemoved(learnedList.getSelectedValuesList());
       }
     };
     return createButton(tooltip, smartAction);
@@ -89,12 +88,12 @@ public class MagicLearnView implements IMagicLearnView {
     return new JButton(smartAction);
   }
 
-  private void fireMagicRemoved(Object[] removedMagics) {
-    control.announce().magicRemoved(removedMagics);
+  private void fireMagicRemoved(List removedMagics) {
+    control.announce().magicRemoved(removedMagics.toArray(new Object[removedMagics.size()]));
   }
 
-  private void fireMagicAdded(Object[] addedMagics) {
-    control.announce().magicAdded(addedMagics);
+  private void fireMagicAdded(List addedMagics) {
+    control.announce().magicAdded(addedMagics.toArray(new Object[]{addedMagics.size()}));
   }
 
   @Override

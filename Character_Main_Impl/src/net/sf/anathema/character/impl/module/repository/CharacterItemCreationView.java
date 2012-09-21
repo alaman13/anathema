@@ -46,8 +46,7 @@ public class CharacterItemCreationView implements ICharacterItemCreationView {
 
   @Override
   public IListObjectSelectionView<ITemplateTypeAggregation> addObjectSelectionList() {
-    ListObjectSelectionView<ITemplateTypeAggregation> view = new ListObjectSelectionView<ITemplateTypeAggregation>(
-        ITemplateTypeAggregation.class);
+    ListObjectSelectionView<ITemplateTypeAggregation> view = new ListObjectSelectionView<ITemplateTypeAggregation>();
     JScrollPane scrollPane = new JScrollPane(view.getComponent());
     component.add(scrollPane, GridDialogLayoutData.FILL_BOTH);
     return view;
