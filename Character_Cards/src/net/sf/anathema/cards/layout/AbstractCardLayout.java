@@ -58,10 +58,8 @@ public abstract class AbstractCardLayout implements ICardLayout {
 	protected void drawImage(PdfContentByte directContent, float x, float y, Image image) {
 		try {
 			directContent.addImage(image, image.getScaledWidth(), 0, 0, image.getScaledHeight(), x, y - image.getScaledHeight());
-		} catch (BadElementException e) {
-			e.printStackTrace();
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		}
-	}
+  }
 }

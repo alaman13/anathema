@@ -103,15 +103,10 @@ public class AnathemaSaveAllAction extends SmartAction {
           persister.save(writeAccess, item);
           item.setClean();
         }
-        catch (IOException e) {
+        catch (IOException | RepositoryException e) {
           MessageUtilities.indicateMessage(getClass(), parentComponent, new Message(
               resources.getString("AnathemaPersistence.SaveAction.Message.Error"), e)); //$NON-NLS-1$
-        }
-        catch (RepositoryException e) {
-          MessageUtilities.indicateMessage(getClass(), parentComponent, new Message(
-              resources.getString("AnathemaPersistence.SaveAction.Message.Error"), e)); //$NON-NLS-1$
-        }
-        finally {
+        } finally {
           parentComponent.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         }
       }

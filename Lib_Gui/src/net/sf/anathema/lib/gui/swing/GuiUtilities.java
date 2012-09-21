@@ -298,9 +298,7 @@ public class GuiUtilities {
     } else {
       try {
         SwingUtilities.invokeAndWait(runner);
-      } catch (InterruptedException e) {
-        throw new RuntimeException(e);
-      } catch (InvocationTargetException e) {
+      } catch (InterruptedException | InvocationTargetException e) {
         throw new RuntimeException(e);
       }
     }
