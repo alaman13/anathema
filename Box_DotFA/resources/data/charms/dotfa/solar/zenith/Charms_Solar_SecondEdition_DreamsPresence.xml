@@ -60,26 +60,30 @@
           <source source="LordsOfCreation" />
 		<source source="ScrollErrata" />
      </charm>
-     <charm id="Solar.EternalEmpressOfLoveAttitude" exalt="Solar" group="Presence">
-          <prerequisite>
-               <trait id="Presence" value="6" />
-               <essence value="6" />
-               <charmReference id="Solar.Authority-RadiatingStance" />
-          </prerequisite>
-          <cost>
-               <essence cost="5" />
-               <willpower cost="1" />
-          </cost>
-          <duration duration="Indefinite" />
-          <charmtype type="Simple" />
-          <charmAttribute attribute="Combo-Basic" visualize="true" />
-			<charmAttribute attribute="Compulsion" visualize="true" />
-          <charmAttribute attribute="Emotion" visualize="true" />
+	<charm id="Solar.EternalEmpressOfLoveAttitude" exalt="Solar" group="Presence">
+		<prerequisite>
+			<trait id="Presence" value="6" />
+			<essence value="6" />
+			<charmReference id="Solar.Authority-RadiatingStance" />
+		</prerequisite>
+		<cost>
+			<essence cost="5" />
+			<willpower cost="1" />
+		</cost>
+		<duration duration="Indefinite" />
+		<charmtype type="Simple" />
+		<charmAttribute attribute="Combo-Basic" visualize="true" />
+		<charmAttribute attribute="Compulsion" visualize="true" />
+		<charmAttribute attribute="Emotion" visualize="true" />
 		<charmAttribute attribute="Mirror" visualize="true" />
 		<!-- NOTE:  Abyssal Mirror - Eternal Overlord of Dread Attitude -->
-          <source source="LordsOfCreation" />
+		<repurchases trait="Presence">
+			<repurchase essence="6" trait="6"/>
+			<repurchase essence="7" trait="7"/>
+		</repurchases>
+		<source source="LordsOfCreation" />
 		<source source="ScrollErrata" />
-     </charm>
+	</charm>
 	<charm id="Solar.HasteningNightsEnd" exalt="Solar" group="Presence">
 		<!-- NOTE:  Solar/Medicine "Mirror" - Mind-Soothing Anodyne -->
 		<prerequisite>
