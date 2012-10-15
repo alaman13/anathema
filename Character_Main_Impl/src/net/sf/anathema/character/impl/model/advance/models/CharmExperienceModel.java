@@ -51,7 +51,7 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
   private int calculateCharmCost(ICharmConfiguration charmConfiguration, ICharm charm, Set<ICharm> charmsCalculated) {
     ISpecialCharmConfiguration specialCharm = charmConfiguration.getSpecialCharmConfiguration(charm);
     int charmCost = calculator
-            .getCharmCosts(charm, basicCharacter, traitConfiguration, character.getCharacterTemplate().getMagicTemplate().getFavoringTraitType());
+            .getCharmCosts(charm, character, basicCharacter, traitConfiguration, character.getCharacterTemplate().getMagicTemplate().getFavoringTraitType());
     if (specialCharm != null) {
       int timesLearnedWithExperience = specialCharm.getCurrentLearnCount() - specialCharm.getCreationLearnCount();
       int specialCharmCost = timesLearnedWithExperience * charmCost;

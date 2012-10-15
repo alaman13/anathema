@@ -47,7 +47,7 @@ public class GenericExperiencePointCosts extends ReflectionCloneableObject<Gener
 
   @Override
   public int getSpellCosts(ISpell spell, IBasicCharacterData basicCharacter, IGenericTraitCollection traitCollection) {
-    return spellCost != 0 ? spellCost : getCharmCosts(spell.isFavored(basicCharacter, traitCollection), null);
+    return spellCost != 0 ? spellCost : getCharmCosts(spell.isFavored(basicCharacter, traitCollection), false, null);
   }
 
   @Override
@@ -59,12 +59,15 @@ public class GenericExperiencePointCosts extends ReflectionCloneableObject<Gener
         return set.get(attribute.getId());
       }
     }
-    return getCharmCosts(favored, costMapping.getMartialArtsLevel(charm));
+    return getCharmCosts(favored, costMapping.swallowedLotus(), costMapping.getMartialArtsLevel(charm));
   }
 
-  private int getCharmCosts(boolean favored, MartialArtsLevel level) {
+  private int getCharmCosts(boolean favored, boolean lotus, MartialArtsLevel level) {
     if (level != null && (standardMartialArtsLevel.compareTo(level) < 0 || level == MartialArtsLevel.Sidereal)) {
       return favored ? favoredHighLevelCharmCost : generalHighLevelCharmCost;
+    }
+    if (level == MartialArtsLevel.Terrestrial && lotus) {
+      return favored ? favoredCharmCost / 2 : generalCharmCost / 2;
     }
     return favored ? favoredCharmCost : generalCharmCost;
   }

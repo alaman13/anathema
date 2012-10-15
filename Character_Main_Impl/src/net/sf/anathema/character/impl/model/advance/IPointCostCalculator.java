@@ -7,6 +7,7 @@ import net.sf.anathema.character.generic.magic.ICharm;
 import net.sf.anathema.character.generic.magic.ISpell;
 import net.sf.anathema.character.generic.template.magic.FavoringTraitType;
 import net.sf.anathema.character.library.trait.ITrait;
+import net.sf.anathema.character.model.ICharacter;
 
 public interface IPointCostCalculator {
 
@@ -24,5 +25,5 @@ public interface IPointCostCalculator {
 
   int getSpellCosts(ISpell spell, IBasicCharacterData basicCharacter, IGenericTraitCollection traitCollection);
 
-  int getCharmCosts(ICharm charm, IBasicCharacterData basicCharacter, IGenericTraitCollection traitCollection, FavoringTraitType type);
+  int getCharmCosts(ICharm charm, ICharacter character, IBasicCharacterData basicCharacter, IGenericTraitCollection traitCollection, FavoringTraitType type);
 }

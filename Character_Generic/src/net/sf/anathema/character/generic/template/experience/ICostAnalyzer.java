@@ -11,4 +11,6 @@ public interface ICostAnalyzer {
   MartialArtsLevel getMartialArtsLevel(ICharm charm);
 
   boolean isMagicFavored(IMagic magic);
+  
+  boolean swallowedLotus();
 }

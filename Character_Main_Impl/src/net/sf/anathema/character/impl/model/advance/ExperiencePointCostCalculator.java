@@ -14,6 +14,7 @@ import net.sf.anathema.character.library.trait.subtrait.ISubTrait;
 import net.sf.anathema.character.library.trait.visitor.IAggregatedTrait;
 import net.sf.anathema.character.library.trait.visitor.IDefaultTrait;
 import net.sf.anathema.character.library.trait.visitor.ITraitVisitor;
+import net.sf.anathema.character.model.ICharacter;
 
 public class ExperiencePointCostCalculator implements IPointCostCalculator {
 
@@ -83,9 +84,10 @@ public class ExperiencePointCostCalculator implements IPointCostCalculator {
   @Override
   public int getCharmCosts(
       ICharm charm,
+      ICharacter character,
       IBasicCharacterData basicCharacter,
       IGenericTraitCollection traitCollection,
       FavoringTraitType type) {
-    return costs.getCharmCosts(charm, new CostAnalyzer(basicCharacter, traitCollection));
+    return costs.getCharmCosts(charm, new CostAnalyzer(character, basicCharacter, traitCollection));
   }
 }
