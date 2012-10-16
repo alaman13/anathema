@@ -4,7 +4,6 @@ import net.sf.anathema.character.dummy.trait.DummyCoreTraitConfiguration;
 import net.sf.anathema.character.generic.dummy.DummyAdditionalBonusPointManagment;
 import net.sf.anathema.character.generic.dummy.DummyAdditionalSpellPointManagement;
 import net.sf.anathema.character.generic.dummy.DummyGenericCharacter;
-import net.sf.anathema.character.generic.dummy.magic.DummyCharmConfiguration;
 import net.sf.anathema.character.generic.dummy.magic.DummySpell;
 import net.sf.anathema.character.generic.dummy.magic.DummySpellConfiguration;
 import net.sf.anathema.character.generic.dummy.template.DummyCharacterTemplate;
@@ -12,9 +11,10 @@ import net.sf.anathema.character.generic.impl.template.points.DefaultBonusPointC
 import net.sf.anathema.character.generic.magic.ISpell;
 import net.sf.anathema.character.generic.template.creation.IBonusPointCosts;
 import net.sf.anathema.character.generic.traits.types.AbilityType;
-import net.sf.anathema.character.impl.model.context.BasicCharacterContext;
+import net.sf.anathema.character.impl.model.ExaltedCharacter;
 import net.sf.anathema.character.impl.model.creation.bonus.magic.MagicCostCalculator;
 import net.sf.anathema.character.library.trait.favorable.FavorableState;
+import net.sf.anathema.character.model.ICharacter;
 import net.sf.anathema.character.model.ISpellConfiguration;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,29 +24,26 @@ import static org.junit.Assert.assertEquals;
 public class CharmCostCalculatorTest extends AbstractBonusPointTestCase {
 
   private MagicCostCalculator calculator;
-  private DummyCharmConfiguration charms;
+  private ICharacter character;
   private ISpellConfiguration spells;
   private DummyCoreTraitConfiguration traitConfiguration;
 
   @Before
   public void setUp() throws Exception {
-    charms = new DummyCharmConfiguration();
     spells = new DummySpellConfiguration();
     traitConfiguration = new DummyCoreTraitConfiguration();
     addAbilityAndEssence(traitConfiguration);
     IBonusPointCosts cost = new DefaultBonusPointCosts();
     DummyGenericCharacter genericCharacter = new DummyGenericCharacter(new DummyCharacterTemplate());
+    character = new ExaltedCharacter(new DummyCharacterTemplate(), null);
     calculator = new MagicCostCalculator(
       genericCharacter.getTemplate().getMagicTemplate(),
-      charms,
-      spells,
+      character,
       2,
       3,
       cost,
       new DummyAdditionalBonusPointManagment(),
-      new DummyAdditionalSpellPointManagement(),
-      new BasicCharacterContext(genericCharacter),
-      traitConfiguration);
+      new DummyAdditionalSpellPointManagement());
   }
 
   @Test

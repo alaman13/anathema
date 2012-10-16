@@ -110,6 +110,12 @@ public class BonusPointCostTemplateParserTest extends BasicTemplateParsingTestCa
       public boolean isOccultFavored() {
         return false;
       }
+
+      @Override
+      public boolean swallowedLotus() {
+        // TODO Auto-generated method stub
+        return false;
+      }
     }));
     assertEquals(5, costs.getMagicCosts(testCharm, new ICostAnalyzer() {
       @Override
@@ -124,6 +130,12 @@ public class BonusPointCostTemplateParserTest extends BasicTemplateParsingTestCa
 
       @Override
       public boolean isOccultFavored() {
+        return false;
+      }
+
+      @Override
+      public boolean swallowedLotus() {
+        // TODO Auto-generated method stub
         return false;
       }
     }));
@@ -150,6 +162,12 @@ public class BonusPointCostTemplateParserTest extends BasicTemplateParsingTestCa
       public boolean isOccultFavored() {
         return false;
       }
+
+      @Override
+      public boolean swallowedLotus() {
+        // TODO Auto-generated method stub
+        return false;
+      }
     }));
   }
 
@@ -169,6 +187,12 @@ public class BonusPointCostTemplateParserTest extends BasicTemplateParsingTestCa
       public boolean isOccultFavored() {
         return false;
       }
+
+      @Override
+      public boolean swallowedLotus() {
+        // TODO Auto-generated method stub
+        return false;
+      }
     }));
   }
 
@@ -186,6 +210,12 @@ public class BonusPointCostTemplateParserTest extends BasicTemplateParsingTestCa
 
       @Override
       public boolean isOccultFavored() {
+        return false;
+      }
+
+      @Override
+      public boolean swallowedLotus() {
+        // TODO Auto-generated method stub
         return false;
       }
     }));
@@ -216,6 +246,12 @@ public class BonusPointCostTemplateParserTest extends BasicTemplateParsingTestCa
       public boolean isOccultFavored() {
         return false;
       }
+
+      @Override
+      public boolean swallowedLotus() {
+        // TODO Auto-generated method stub
+        return false;
+      }
     }));
     assertEquals(7, costs.getMagicCosts(testCharm, new ICostAnalyzer() {
       @Override
@@ -230,6 +266,12 @@ public class BonusPointCostTemplateParserTest extends BasicTemplateParsingTestCa
 
       @Override
       public boolean isOccultFavored() {
+        return false;
+      }
+
+      @Override
+      public boolean swallowedLotus() {
+        // TODO Auto-generated method stub
         return false;
       }
     }));
@@ -249,6 +291,12 @@ public class BonusPointCostTemplateParserTest extends BasicTemplateParsingTestCa
 
       @Override
       public boolean isOccultFavored() {
+        return false;
+      }
+
+      @Override
+      public boolean swallowedLotus() {
+        // TODO Auto-generated method stub
         return false;
       }
     }));

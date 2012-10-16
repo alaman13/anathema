@@ -22,7 +22,7 @@ public class CostAnalyzerTest {
   private static final String CHARM_ID = "charmId"; //$NON-NLS-1$
   private DummyCoreTraitConfiguration dummyCoreTraitConfiguration = new DummyCoreTraitConfiguration();
   private DummyBasicCharacterData basicCharacterData = new DummyBasicCharacterData();
-  private CostAnalyzer costAnalyzer = new CostAnalyzer(basicCharacterData, dummyCoreTraitConfiguration);
+  private CostAnalyzer costAnalyzer = new CostAnalyzer(null, basicCharacterData, dummyCoreTraitConfiguration);
 
   @Test
   public void testIsFavoredMagicDelegatesToMagic() throws Exception {
@@ -31,8 +31,8 @@ public class CostAnalyzerTest {
     Mockito.when(magic.isFavored(trueCharacterData, dummyCoreTraitConfiguration)).thenReturn(true);
     IBasicCharacterData falseCharacterData = new DummyBasicCharacterData();
     when(magic.isFavored(falseCharacterData, dummyCoreTraitConfiguration)).thenReturn(false);
-    assertTrue(new CostAnalyzer(trueCharacterData, dummyCoreTraitConfiguration).isMagicFavored(magic));
-    assertFalse(new CostAnalyzer(falseCharacterData, dummyCoreTraitConfiguration).isMagicFavored(magic));
+    assertTrue(new CostAnalyzer(null, trueCharacterData, dummyCoreTraitConfiguration).isMagicFavored(magic));
+    assertFalse(new CostAnalyzer(null, falseCharacterData, dummyCoreTraitConfiguration).isMagicFavored(magic));
   }
 
   @Test

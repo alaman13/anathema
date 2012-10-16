@@ -137,6 +137,12 @@ public class ExperienceTemplateParserTest {
       public boolean isMagicFavored(IMagic magic) {
         return false;
       }
+
+      @Override
+      public boolean swallowedLotus() {
+        // TODO Auto-generated method stub
+        return false;
+      }
     }));
   }
 
@@ -159,6 +165,12 @@ public class ExperienceTemplateParserTest {
       public boolean isMagicFavored(IMagic magic) {
         return true;
       }
+
+      @Override
+      public boolean swallowedLotus() {
+        // TODO Auto-generated method stub
+        return false;
+      }
     }));
   }
 
@@ -179,6 +191,12 @@ public class ExperienceTemplateParserTest {
 
       @Override
       public boolean isMagicFavored(IMagic magic) {
+        return false;
+      }
+
+      @Override
+      public boolean swallowedLotus() {
+        // TODO Auto-generated method stub
         return false;
       }
     }));
@@ -203,6 +221,12 @@ public class ExperienceTemplateParserTest {
       public boolean isMagicFavored(IMagic magic) {
         return false;
       }
+
+      @Override
+      public boolean swallowedLotus() {
+        // TODO Auto-generated method stub
+        return false;
+      }
     }));
   }
 
@@ -224,6 +248,12 @@ public class ExperienceTemplateParserTest {
       @Override
       public boolean isMagicFavored(IMagic magic) {
         return true;
+      }
+
+      @Override
+      public boolean swallowedLotus() {
+        // TODO Auto-generated method stub
+        return false;
       }
     }));
   }
