@@ -7,6 +7,7 @@ import net.sf.anathema.character.generic.magic.IMagic;
 import net.sf.anathema.character.generic.magic.IMagicVisitor;
 import net.sf.anathema.character.generic.magic.ISpell;
 import net.sf.anathema.character.generic.magic.charms.ICharmAttribute;
+import net.sf.anathema.character.generic.magic.charms.MartialArtsLevel;
 import net.sf.anathema.character.generic.magic.charms.special.ISpecialCharmConfiguration;
 import net.sf.anathema.character.generic.template.creation.IBonusPointCosts;
 import net.sf.anathema.character.generic.template.magic.ICharmTemplate;
@@ -15,6 +16,7 @@ import net.sf.anathema.character.generic.template.magic.IUniqueCharmType;
 import net.sf.anathema.character.impl.model.advance.CostAnalyzer;
 import net.sf.anathema.character.impl.model.creation.bonus.IAdditionalMagicLearnPointManagement;
 import net.sf.anathema.character.impl.model.creation.bonus.additional.IAdditionalBonusPointManagment;
+import net.sf.anathema.character.model.ICharacter;
 import net.sf.anathema.character.model.ISpellConfiguration;
 import net.sf.anathema.character.model.charm.ICharmConfiguration;
 import net.sf.anathema.character.model.charm.special.ISubeffectCharmConfiguration;
@@ -28,6 +30,7 @@ import java.util.Set;
 
 public class MagicCostCalculator {
 
+  private final ICharacter character;
   private final ICharmConfiguration charms;
   private final ISpellConfiguration spells;
   private final int favoredCreationCharmCount;
@@ -35,6 +38,7 @@ public class MagicCostCalculator {
   private int generalPicksSpent = 0;
   private int favoredPicksSpent = 0;
   private int bonusPointsSpentForCharms = 0;
+  private boolean skipLotus = false;
   private final IBonusPointCosts costs;
   private CostAnalyzer analyzer;
   private final IAdditionalBonusPointManagment bonusPools;
@@ -42,23 +46,25 @@ public class MagicCostCalculator {
   private final IAdditionalMagicLearnPointManagement magicPools;
   private final IMagicTemplate magicTemplate;
 
-  public MagicCostCalculator(IMagicTemplate magicTemplate, ICharmConfiguration charms, ISpellConfiguration spells,
-                             int favoredCreationCharmCount, int defaultCreationCharmCount, IBonusPointCosts costs,
-                             IAdditionalBonusPointManagment bonusPools, IAdditionalMagicLearnPointManagement magicPools,
-                             IBasicCharacterData basicCharacter, IGenericTraitCollection traitCollection) {
+  public MagicCostCalculator(IMagicTemplate magicTemplate, ICharacter character, int favoredCreationCharmCount,
+                             int defaultCreationCharmCount, IBonusPointCosts costs, IAdditionalBonusPointManagment
+                             bonusPools, IAdditionalMagicLearnPointManagement magicPools) {
     this.magicTemplate = magicTemplate;
-    this.charms = charms;
-    this.spells = spells;
+    this.character = character;
+    this.charms = character.getCharms();
+    this.spells = character.getSpells();
     this.favoredCreationCharmCount = favoredCreationCharmCount;
     this.defaultCreationCharmCount = defaultCreationCharmCount;
     this.costs = costs;
     this.bonusPools = bonusPools;
     this.magicPools = magicPools;
-    this.analyzer = new CostAnalyzer(basicCharacter, traitCollection);
+    this.analyzer = new CostAnalyzer(character, character.getCharacterContext().getBasicCharacterContext(),
+                                     character.getCharacterContext().getTraitCollection());
   }
 
   public void calculateMagicCosts() {
     clear();
+    skipLotus = false;
     List<IMagic> magicToHandle = handleAdditionalMagicPools();
     if (magicToHandle == null || magicToHandle.size() == 0) {
       return;
@@ -71,7 +77,7 @@ public class MagicCostCalculator {
             magicToHandle.toArray(new IMagic[magicToHandle.size()]), weights);
     Set<IMagic> handledMagic = new HashSet<IMagic>();
     for (IMagic magic : sortedMagicList) {
-      handleMagic(magic, handledMagic);
+      handleMagic(magic, handledMagic, analyzer.swallowedLotus());
     }
   }
 
@@ -99,16 +105,26 @@ public class MagicCostCalculator {
     }
   }
 
-  private void handleMagic(IMagic magic, Set<IMagic> handledMagic) {
+  private void handleMagic(IMagic magic, Set<IMagic> handledMagic, boolean lotus) {
     int bonusPointFactor = costs.getMagicCosts(magic, analyzer);
     CountVisitor visitor = new CountVisitor(handledMagic);
     magic.accept(visitor);
     boolean favored = analyzer.isMagicFavored(magic);
+    boolean isTerrestrialMartialArts = analyzer.getMartialArtsLevel((ICharm) magic) == MartialArtsLevel.Terrestrial;
     for (int timesHandled = 0; timesHandled < visitor.getLearnCount(); timesHandled++) {
-      if (favored) {
-        handleFavoredMagic(bonusPointFactor, magic);
-      } else {
-        handleGeneralMagic(bonusPointFactor, magic);
+      if (lotus && skipLotus && isTerrestrialMartialArts) {
+        skipLotus = false;
+      }
+      else {
+        if (favored) {
+          handleFavoredMagic(bonusPointFactor, magic);
+        }
+        else {
+          handleGeneralMagic(bonusPointFactor, magic);
+        }
+        if (isTerrestrialMartialArts) {
+          skipLotus = true;
+        }
       }
     }
     handleSubeffectCharm(magic);

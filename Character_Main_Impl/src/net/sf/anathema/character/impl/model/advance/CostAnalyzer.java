@@ -16,12 +16,6 @@ public class CostAnalyzer implements ICostAnalyzer {
   private final IBasicCharacterData basicCharacter;
   private final IGenericTraitCollection traitCollection;
 
-  public CostAnalyzer(IBasicCharacterData basicCharacter, IGenericTraitCollection traitCollection) {
-    this.basicCharacter = basicCharacter;
-    this.traitCollection = traitCollection;
-    this.character = null;
-  }
-
   public CostAnalyzer(ICharacter character, IBasicCharacterData basicCharacter, IGenericTraitCollection traitCollection) {
     this.character = character;
     this.basicCharacter = basicCharacter;
@@ -45,6 +39,12 @@ public class CostAnalyzer implements ICostAnalyzer {
 
   @Override
   public boolean swallowedLotus() {
-    return character.getCharms().isLearned("Solar.SwallowingTheLotusRoot");
+    if (character.getCharms().isLearned("Solar.SwallowingTheLotusRoot")) return true;
+    if (character.getCharms().isLearned("Abyssal.BloodSoakedLotusRoots")) return true;
+    if (character.getCharms().isLearned("Infernal.RootsOfTheBrassLotus")) return true;
+    if (character.getCharms().isLearned("Lunar.TerrestrialBloodlineIntegration")) return true;
+    if (character.getCharms().isLearned("Sidereal.PerfectedLotusMastery")) return true;
+    //if (character.getCharms().isLearned("Alchemical.LotusFilamentConduction")) return true;
+    return false;
   }
 }
